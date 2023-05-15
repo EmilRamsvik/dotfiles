@@ -15,5 +15,10 @@ brew "goku"
 brew "jq"
 brew "the_silver_searcher" # Code-search tool (like ack, but faster)
 
+#Javascript/react
+brew "node"
+brew "yarn"
+brew "watchman"
+
 cask "flutter"
 cask "warp"

@@ -28,6 +28,10 @@ local ensure_packer = function()
     use 'jiangmiao/auto-pairs' -- Automate pairings of parentheses and quotes
     use 'akinsho/flutter-tools.nvim' -- Tools to help create flutter apps. (Flutter SDK needs to be in your PATH)
     use 'dart-lang/dart-vim-plugin' -- Dart syntax and indentation support
+    use 'neoclide/coc.nvim'
+    use 'pangloss/vim-javascript'
+    use 'maxmellon/vim-jsx-pretty'
+    use 'dense-analysis/ale'
     use({
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
