@@ -1,14 +1,23 @@
 #!/bin/zsh
+if test ! $(which brew); then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+# Install packages from Brewfile
+echo "Installing packages homebrew from brewfile..."
+brew bundle
 
 
 # link to files in the github repo to make the symbolic links
 ZSHRC_SOURCE=~/dotfiles/.zshrc
 KARABINER_SOURCE=~/dotfiles/.config/karabiner.edn
+LUA_SOURCE=~/dotfiles/nvim/init.lua
 
 
 # Define the target files
 ZSHRC_TARGET=~/.zshrc
 KARABINER_TARGET=~/.config/karabiner.edn
+LUA_TARGET=~/.config/nvim/init.lua
 
 # Function to create symbolic links
 create_symlink() {
@@ -36,22 +45,19 @@ create_symlink() {
 # Create the symbolic links
 create_symlink $ZSHRC_SOURCE $ZSHRC_TARGET "false"
 create_symlink $KARABINER_SOURCE $KARABINER_TARGET "false"
-#!/bin/zsh
-
-# Check if Goku is installed
-if ! command -v goku &> /dev/null
-then
-    echo "Goku is not installed. Installing now..."
-    brew install yqrashawn/goku/goku
-fi
-
-# Run Goku
-echo "Running Goku..."
-goku
-
+create_symlink $LUA_SOURCE $LUA_TARGET "false"
 
 # Install the plugins
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 echo "Installing plugins..."
 zsh -c "source ~/.zshrc && zinit self-update && zinit update --all"
 
 
+echo "Running Goku..."
+goku
+
+
+# neovim configs
+git clone https://github.com/wbthomason/packer.nvim ~/.config/nvim/pack/packer/start/packer.nvim
+echo "Installing neovim plugins..."
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

@@ -1,4 +1,3 @@
-
 # movement
 alias ll='ls -l'
 alias grep='grep --color'
@@ -10,20 +9,23 @@ alias uuuu="cd ../../../.."
 
 #shortcusts
 alias dev="cd ~/Documents/dev"
+alias nb="cd ~/Documents/notebooks"
+alias admin="cd ~/Documents/admin"
+alias emil="cd ~/Dropbox/Emil"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/Documents/Projects"
+
+# local
 alias src="cd ~/Documents/dev/qp-mlops/data_science/src"
 alias bend="cd ~/Documents/dev/CustomerDashboard/customerdashboard/backend/app"
 alias fend="cd ~/Documents/dev/CustomerDashboard/customerdashboard/frontend/src"
 alias ci="cd ~/Documents/dev/CustomerDashboard"
 alias qp="cd ~/Documents/dev/qp-mlops"
-alias nb="cd ~/Documents/notebooks"
-alias admin="cd ~/Documents/admin"
-alias emil="cd ~/Dropbox/Emil"
-alias gha="cd ./.github/workflows && ls"
 
-# Shortcuts
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias p="cd ~/Documents/Projects"
+# development specific
+alias gha="cd ./.github/workflows && ls"
+alias lib="cd ./lib && ls" # flutter shortcut
 
 # config files
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
@@ -46,10 +48,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-
+# programs
 alias g="git"
 alias ipy="ipython"
-
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
