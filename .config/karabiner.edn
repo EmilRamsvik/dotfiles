@@ -7,8 +7,12 @@
   
   :layers {
   :caps-mode {:key :caps_lock :alone {:key :escape}}
-;;   :w-mode {:key :w} ; mode for opening files and programs
+
    }
+   :simlayers {
+  :w-mode {:key :w} ; mode for opening files and programs
+   }
+
 
   :main
 
