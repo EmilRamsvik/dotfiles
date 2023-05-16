@@ -58,6 +58,6 @@ goku
 
 
 # neovim configs
-git clone https://github.com/wbthomason/packer.nvim ~/.config/nvim/pack/packer/start/packer.nvim
+git clone https://github.com/wbthomason/packer.nvim ~/dotfiles/nvim/pack/packer/start/packer.nvim
 echo "Installing neovim plugins..."
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

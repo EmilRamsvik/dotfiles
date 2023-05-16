@@ -9,10 +9,10 @@ brew "thefuck"
 brew "pyenv"  # Python Version Management
 brew "pipenv" # Python Dependency Management
 brew "neovim"
-brew "dart"
 brew "dart-sdk"
 brew "goku"
 brew "jq"
+brew "zsh-syntax-highlighting"
 brew "the_silver_searcher" # Code-search tool (like ack, but faster)
 
 #Javascript/react

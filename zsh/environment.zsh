@@ -43,5 +43,16 @@ if [[ "$(command -v pipenv)" ]]; then
 fi
 
 
+
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+
+# --------------
+# zshtools
+# --------------
+
+# autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+
