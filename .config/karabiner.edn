@@ -48,7 +48,7 @@
             ]}
    {:des "wkey (apps)"
          :rules [:w-mode
-                 [:e [:km "open: Fantastical"]]
+                 [:r [:km "open: Fantastical"]]
                  [:p [:km "open: Keyboard Maestro"]]
                  [:p [:km "open: Postgres"]]
                  [:f [:km "open: Finder"]]
@@ -58,6 +58,7 @@
                  [:o [:km "open: Obsidian"]]
                  [:k [:km "open: Chrome"]]
                  [:semicolon [:km "open: ChatGPT"]]
+                 [:h [:km "open: Teams"]]
                  
                 ;;  [:d [:km "open: TablePlus"]] ;[:d [:km "open: Postico"]]
                 ;;  [:q [:km "open: GraphQL"]]
@@ -67,7 +68,6 @@
                 ;;  [:i [:km "open: "]]
                  ;[:i [:km "open: Dropcode"]]
                 ;;  [:i [:km "open: SnippetsLab"]]
-                ;;  [:f [:km "open: 2Do"]]
                  ;[:g [:km "open: Height"]]
                 ;;  [:g [:km "open: Things"]]
                 ;;  [:h [:km "open: Zen"]]
