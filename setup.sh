@@ -11,13 +11,13 @@ brew bundle
 # link to files in the github repo to make the symbolic links
 ZSHRC_SOURCE=~/dotfiles/.zshrc
 KARABINER_SOURCE=~/dotfiles/.config/karabiner.edn
-LUA_SOURCE=~/dotfiles/nvim/init.lua
+LUA_SOURCE=~/dotfiles/nvim
 
 
 # Define the target files
 ZSHRC_TARGET=~/.zshrc
 KARABINER_TARGET=~/.config/karabiner.edn
-LUA_TARGET=~/.config/nvim/init.lua
+LUA_TARGET=~/.config/nvim
 
 # Function to create symbolic links
 create_symlink() {
