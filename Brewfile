@@ -20,5 +20,5 @@ brew "node"
 brew "yarn"
 brew "watchman"
 
-cask "flutter"
-cask "warp"
+# cask "flutter"
+# cask "warp"

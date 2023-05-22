@@ -45,7 +45,12 @@ map('i', 'jk', '<ESC>')
 
 map('n', '<Space>', '/')
 
+map('n', '<D-j>', '5j')
+map('v', '<D-j>', '5j')
 
+
+map('n', '<D-k>', '5k')
+map('v', '<D-k>', '5k')
 
 
 

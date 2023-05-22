@@ -42,6 +42,9 @@
             [:w :!OTf] ; Middle third
             [:e :!OTg] ; Right third
 
+            ; Obsidian workflows for quick 
+            [:i :!OSCr] ; add clipboard to inbox note
+
 
 
 
@@ -60,31 +63,22 @@
                  [:semicolon [:km "open: ChatGPT"]]
                  [:h [:km "open: Teams"]]
                  
-                ;;  [:d [:km "open: TablePlus"]] ;[:d [:km "open: Postico"]]
-                ;;  [:q [:km "open: GraphQL"]]
-                ;;  [:r [:km "open: Notion"]]
-                ;;  [:t [:km "open: Activity Monitor"]]
-                 ;[:i [:km "open: Instruments"]]
-                ;;  [:i [:km "open: "]]
-                 ;[:i [:km "open: Dropcode"]]
-                ;;  [:i [:km "open: SnippetsLab"]]
-                 ;[:g [:km "open: Height"]]
-                ;;  [:g [:km "open: Things"]]
-                ;;  [:h [:km "open: Zen"]]
-                 ;[:g [:km "open: Linear"]]
-                 ;[:h [:km "open: Safari Technology Preview"]]
-                 ;[:h [:km "open: Android Emulator"]]
-                ;;  [:k [:km "open: Safari"]]
-                ;;  [:semicolon [:km "open: Xcode"]]
-                ;;  [:quote [:km "open: Console"]]
-                 ;[:v [:km "open: HTTPie"]]
-                ;;  [:v [:km "open: Paw"]]
-                ;;  [:b [:km "open: BetterTouchTool"]]
-                ;;  [:n [:km "open: Sublime Text"]]
-                ;;  [:m [:km "open: Sublime Merge"]]
-                ;;  [:comma [:km "open: Proxyman"]]
-                ;;  [:period [:km "open: Cypress"]]]} 
             
             ]}
   ]
   }
+;; !  | means mandatory
+;; #  | means optional
+;; C  | left_command
+;; T  | left_control
+;; O  | left_option
+;; S  | left_shift
+;; F  | fn
+;; Q  | right_command
+;; W  | right_control
+;; E  | right_option
+;; R  | right_shift
+;; !! | mandatory command + control + optional + shift (hyper)
+;; ## | optional any
+
+  
