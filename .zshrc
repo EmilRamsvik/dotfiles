@@ -14,6 +14,7 @@ source ~/dotfiles/zsh/environment.zsh
 source ~/dotfiles/zsh/plugins.zsh
 source ~/dotfiles/zsh/functions.zsh
 source ~/dotfiles/zsh/settings.zsh
+source ~/dotfiles/zsh/local.zsh
 
 
 
