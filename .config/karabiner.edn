@@ -7,7 +7,7 @@
   
   :layers {
   :caps-mode {:key :caps_lock :alone {:key :escape}}
-
+  :tab-mode {:key :tab :alone {:key :tab}}
    }
    :simlayers {
   :w-mode {:key :w} ; mode for opening files and programs
@@ -31,9 +31,12 @@
             [:##k :up_arrow]
             [:##l :right_arrow]
 
-            [:##f :left_option]
-            [:##d :left_shift]
+            ;; [[:C :j] [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
+            [:##u [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
             [:s :!CS2] ;  activate shotr area command. 
+
+
+
             ; RECTANGLE APP COMMANDS
             [:m :!OTreturn_or_enter] ; Rectangle maximize
             [:comma :!OTleft_arrow] ;left half
@@ -41,12 +44,24 @@
             [:q :!OTd] ; Left third
             [:w :!OTf] ; Middle third
             [:e :!OTg] ; Right third
+            [:r :!OTe] ; Right third
+            [:t :!OTt] ; Right third
 
             ; Obsidian workflows for quick 
             [:i :!OSCr] ; add clipboard to inbox note
 
 
 
+
+            ]}
+  {:des "tab layer"
+    :rules [; some comment
+            :tab-mode
+            ; Large VIM MOVEMENTS
+            [:##j [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
+            [:h [:left_arrow :left_arrow :left_arrow :left_arrow :left_arrow]]
+            [:k [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow]]
+            [:l [:right_arrow :right_arrow :right_arrow :right_arrow :right_arrow]]
 
             ]}
    {:des "wkey (apps)"
