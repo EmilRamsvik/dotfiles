@@ -31,9 +31,9 @@
             [:##k :up_arrow]
             [:##l :right_arrow]
 
-            ;; [[:C :j] [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
-            [:##u [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
-            [:s :!CS2] ;  activate shotr area command. 
+            ; HOTKEY CAMPAIGN
+            [:##s :left_command] ;  Hotkey for command key
+            [:##d :left_option] ;  Hotkey for option key
 
 
 
@@ -46,12 +46,6 @@
             [:e :!OTg] ; Right third
             [:r :!OTe] ; Right third
             [:t :!OTt] ; Right third
-
-            ; Obsidian workflows for quick 
-            [:i :!OSCr] ; add clipboard to inbox note
-
-
-
 
             ]}
   {:des "tab layer"
