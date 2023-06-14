@@ -54,3 +54,7 @@ alias ipy="ipython"
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
+alias python="python3"
+alias python="python3"
+alias py="python3"
+

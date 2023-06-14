@@ -34,6 +34,7 @@
             ; HOTKEY CAMPAIGN
             [:##s :left_command] ;  Hotkey for command key
             [:##d :left_option] ;  Hotkey for option key
+            [:##a :left_shift] ;  Hotkey for shift key
 
 
 
@@ -47,6 +48,7 @@
             [:r :!OTe] ; Right third
             [:t :!OTt] ; Right third
 
+            [:i :!OSCr] ; add clipboard to inbox note
             ]}
   {:des "tab layer"
     :rules [; some comment
