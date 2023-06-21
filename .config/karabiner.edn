@@ -26,15 +26,13 @@
     :rules [; some comment
             :caps-mode
             ; VIM MOVE COMMANDS WHEN CAPSLOCK IS PRESSED
-            [:##j :down_arrow]
-            [:##h :left_arrow] ; ## means you can press things together
-            [:##k :up_arrow]
-            [:##l :right_arrow]
+            [:##j :##down_arrow]
+            [:##h :##left_arrow] ; ## means you can press things together
+            [:##k :##up_arrow]
+            [:##l :##right_arrow]
+            [:##o :return_or_enter] ;  Hotkey for shift key
+            [:##u :delete_or_backspace] ;  Hotkey for shift key
 
-            ; HOTKEY CAMPAIGN
-            [:##s :left_command] ;  Hotkey for command key
-            [:##d :left_option] ;  Hotkey for option key
-            [:##a :left_shift] ;  Hotkey for shift key
 
 
 
@@ -48,17 +46,19 @@
             [:r :!OTe] ; Right third
             [:t :!OTt] ; Right third
 
-            [:i :!OSCr] ; add clipboard to inbox note
+
             ]}
   {:des "tab layer"
     :rules [; some comment
             :tab-mode
             ; Large VIM MOVEMENTS
             [:##j [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
-            [:h [:left_arrow :left_arrow :left_arrow :left_arrow :left_arrow]]
-            [:k [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow]]
-            [:l [:right_arrow :right_arrow :right_arrow :right_arrow :right_arrow]]
+            [:##h [:left_arrow :left_arrow :left_arrow :left_arrow :left_arrow]]
+            [:##k [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow]]
+            [:##l [:right_arrow :right_arrow :right_arrow :right_arrow :right_arrow]]
 
+            [:i :!OSCr] ; add clipboard to inbox note
+            [:o :!OSCt] ; run tomatobar.  
             ]}
    {:des "wkey (apps)"
          :rules [:w-mode

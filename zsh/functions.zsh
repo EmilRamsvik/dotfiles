@@ -16,3 +16,5 @@ move_file_to_dir() {
         echo "File $file_name does not exist."
     fi
 }
+
+alias move=move_file_to_dir
