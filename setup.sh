@@ -10,6 +10,8 @@ echo "Installing packages homebrew from brewfile..."
 brew bundle
 
 
+
+
 # link to files in the github repo to make the symbolic links
 ZSHRC_SOURCE=~/dotfiles/.zshrc
 KARABINER_SOURCE=~/dotfiles/.config/karabiner.edn
@@ -63,3 +65,6 @@ goku
 git clone https://github.com/wbthomason/packer.nvim ~/dotfiles/nvim/pack/packer/start/packer.nvim
 echo "Installing neovim plugins..."
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.zshrc
+

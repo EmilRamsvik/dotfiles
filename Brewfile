@@ -10,7 +10,6 @@ brew "thefuck"
 brew "pyenv"  # Python Version Management
 brew "pipenv" # Python Dependency Management
 brew "neovim"
-brew "dart-sdk"
 brew "yqrashawn/goku/goku"
 brew "jq"
 brew "zsh-syntax-highlighting"
@@ -21,7 +20,12 @@ brew "node"
 brew "yarn"
 brew "watchman"
 
+#Flutter/Firebase/Dart
+brew "firebase-cli"
+brew "dart-sdk"
+
 # cask "flutter"
 # cask "warp"
 
 cask "karabiner-elements"
+cask "rectangle"
