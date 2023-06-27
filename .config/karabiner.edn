@@ -30,8 +30,14 @@
             [:##h :##left_arrow] ; ## means you can press things together
             [:##k :##up_arrow]
             [:##l :##right_arrow]
-            [:##o :return_or_enter] ;  Hotkey for shift key
-            [:##u :delete_or_backspace] ;  Hotkey for shift key
+
+
+            ; Copy/paste/delete/undo commands 
+            [:##i :!Cz] ; 
+            [:##o :!Cc] ; 
+            [:##p :!Cv] ; 
+            [:##u :delete_or_backspace] ;
+
 
 
 
@@ -46,6 +52,19 @@
             [:r :!OTe] ; Right third
             [:t :!OTt] ; Right third
 
+
+
+            ; NUMBER KEYS ARE SHIFT + NUMBER
+            [:1 :!S1]
+            [:2 :!S2]
+            [:3 :!S3]
+            [:4 :!S4]
+            [:5 :!S5]
+            [:6 :!S6]
+            [:7 :!S7]
+            [:8 :!S8]
+            [:9 :!S9]
+            [:0 :!S0]
 
             ]}
   {:des "tab layer"
