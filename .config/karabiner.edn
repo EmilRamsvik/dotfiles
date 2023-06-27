@@ -33,9 +33,9 @@
 
 
             ; Copy/paste/delete/undo commands 
-            [:##i :!Cz] ; 
-            [:##o :!Cc] ; 
-            [:##p :!Cv] ; 
+            [:##i :!Cz] ; undo
+            [:##o :!Cc] ; copy
+            [:##p :!Cv] ; paste
             [:##u :delete_or_backspace] ;
 
 
