@@ -31,3 +31,4 @@ brew "dart-sdk"
 
 cask "karabiner-elements"
 cask "rectangle"
+cask "shottr"
