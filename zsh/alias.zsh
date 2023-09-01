@@ -42,6 +42,7 @@ alias la="ls -laF -G"
 alias lsd="ls -lF -G | grep --color=never '^d'"
 # Always use color output for `ls`
 alias ls="command ls -G"
+alias path='echo $PWD | pbcopy'
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
