@@ -60,3 +60,8 @@ alias python="python3"
 alias py="python3"
 alias f='open -a Finder ./'
 
+alias t="touch"
+alias pbc="pbcopy"
+alias pbp="pbpaste"
+
+alias be="backend/app"
