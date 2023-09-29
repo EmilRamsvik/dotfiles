@@ -15,7 +15,8 @@ brew "jq"
 brew "zsh-syntax-highlighting"
 brew "the_silver_searcher" # Code-search tool (like ack, but faster)
 brew "bear"
-brew "messenger"
+brew "terraform"
+
 
 #Javascript/react
 brew "node"
@@ -33,3 +34,4 @@ cask "karabiner-elements"
 cask "rectangle"
 cask "shottr"
 cask "google-chrome"
+cask "messenger"

@@ -18,3 +18,22 @@ move_file_to_dir() {
 }
 
 alias move=move_file_to_dir
+
+
+# Define the function
+make_virtual_env() {
+  # Create a Python virtual environment
+  python3 -m venv .venv
+
+  # Activate the virtual environment
+  source .venv/bin/activate
+
+  # Upgrade pip
+  pip install --upgrade pip
+
+  # Print Python version
+  python --version
+}
+
+# Create an alias
+alias venv='make_virtual_env'

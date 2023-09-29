@@ -17,7 +17,7 @@ alias dt="cd ~/Desktop"
 alias p="cd ~/Documents/Projects"
 
 # local
-alias src="cd ~/Documents/dev/qp-mlops/data_science/src"
+alias src="cd app/src"
 alias bend="cd ~/Documents/dev/CustomerDashboard/customerdashboard/backend/app"
 alias fend="cd ~/Documents/dev/CustomerDashboard/customerdashboard/frontend/src"
 alias ci="cd ~/Documents/dev/CustomerDashboard"
