@@ -23,7 +23,7 @@
                   ; remap   
             ]}
    {:des "capslock layer"
-    :rules [; some comment
+    :rules [; capslock layer is for navigation and copy/paste and insertions 
             :caps-mode
             ; VIM MOVE COMMANDS WHEN CAPSLOCK IS PRESSED
             [:##j :##down_arrow]
@@ -33,27 +33,15 @@
 
 
             ; Copy/paste/delete/undo commands 
-            [:##i :!Cz] ; undo
-            [:##o :!Cc] ; copy
+            [:##r :!Cz] ; undo
+            [:##y :!Cc] ; copy
             [:##p :!Cv] ; paste
-            [:##u :delete_or_backspace] ;
-
-
-
-
-
-            ; RECTANGLE APP COMMANDS
-            [:m :!OTreturn_or_enter] ; Rectangle maximize
-            [:comma :!OTleft_arrow] ;left half
-            [:period :!OTright_arrow] ; right half
-            [:q :!OTd] ; Left third
-            [:w :!OTf] ; Middle third
-            [:e :!OTg] ; Right third
-            [:r :!OTe] ; Right third
-            [:t :!OTt] ; Right third
-
-
-
+            [:##u :delete_or_backspace] ; delete character
+            [:##i :!Odelete_or_backspace] ; delete word
+            
+            ; instert commands 
+            [:##m :!SO8] ; {
+            [:##n :!O8] ; [
             ; NUMBER KEYS ARE SHIFT + NUMBER
             [:1 :!S1]
             [:2 :!S2]
@@ -68,13 +56,17 @@
 
             ]}
   {:des "tab layer"
-    :rules [; some comment
+    :rules [; for tabbing between windows and running commands
             :tab-mode
-            ; Large VIM MOVEMENTS
-            [:##j [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
-            [:##h [:left_arrow :left_arrow :left_arrow :left_arrow :left_arrow]]
-            [:##k [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow]]
-            [:##l [:right_arrow :right_arrow :right_arrow :right_arrow :right_arrow]]
+            ; RECTANGLE APP COMMANDS
+            [:m :!OTreturn_or_enter] ; Rectangle maximize
+            [:comma :!OTleft_arrow] ;left half
+            [:period :!OTright_arrow] ; right half
+            [:q :!OTd] ; Left third
+            [:w :!OTf] ; Middle third
+            [:e :!OTg] ; Right third
+            [:r :!OTe] ; Right third
+            [:t :!OTt] ; Right third
 
             [:i :!OSCr] ; add clipboard to inbox note
             [:o :!OSCt] ; run tomatobar.  
