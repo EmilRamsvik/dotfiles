@@ -37,3 +37,14 @@ make_virtual_env() {
 
 # Create an alias
 alias venv='make_virtual_env'
+
+
+execute_vscode() {
+  if [ "$#" -eq 0 ]; then
+    code .
+  else
+    code "$1"
+  fi
+}
+
+alias c="execute_vscode"

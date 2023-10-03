@@ -1,7 +1,6 @@
 # movement
 alias ll='ls -l'
 alias grep='grep --color'
-alias c="code"
 alias u="cd .."
 alias uu="cd ../.."
 alias uuu="cd ../../.."
