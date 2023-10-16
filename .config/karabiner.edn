@@ -12,7 +12,11 @@
    :simlayers {
   :w-mode {:key :w} ; mode for opening files and programs
    }
-
+:applications {
+                :spotify ["com.spotify.client"]
+                :chrome ["com.google.Chrome"]
+                :vscode ["com.microsoft.VSCode"]
+                }
 
   :main
 
@@ -32,16 +36,23 @@
             [:##l :##right_arrow]
 
 
+            [:##a :##left_option]
+
+
+
             ; Copy/paste/delete/undo commands 
             [:##r :!Cz] ; undo
             [:##y :!Cc] ; copy
             [:##p :!Cv] ; paste
+            [:##o :!CSv] ; paste from clipboard history
             [:##u :delete_or_backspace] ; delete character
             [:##i :!Odelete_or_backspace] ; delete word
             
             ; instert commands 
             [:##m :!SO8] ; {
             [:##n :!O8] ; [
+            [:##comma :!SO9] ; {
+            [:##period :!O9] ; [
             ; NUMBER KEYS ARE SHIFT + NUMBER
             [:1 :!S1]
             [:2 :!S2]
@@ -82,13 +93,31 @@
                  [:j [:km "open: Warp"]]
                  [:o [:km "open: Obsidian"]]
                  [:k [:km "open: Chrome"]]
-                 [:semicolon [:km "open: ChatGPT"]]
+                 [:comma [:km "open: ChatGPT"]]
                  [:h [:km "open: Teams"]]
+                 [:m [:km "open: Message"]]
                  
             
             ]}
+    {:des "right command key" ; right command key for app specific commands
+:rules [
+      [:right_command :!Cl :spotify] 
+      [:right_command :!Cl :chrome] 
+      [:right_command :!Cp :vscode] 
+      
+      ]
+}
+   {:des "Quit application by command + Q only when pressing twice"
+         :rules [[:!Cq
+                  [:!Cq ["command-q" 0]]
+                  ["command-q" 1]]
+                 [:!Cq
+                  ["command-q" 1]
+                  nil
+                  {:delayed {:invoked ["command-q" 0] :canceled ["command-q" 0]}}]]}
   ]
   }
+;; :key | means key
 ;; !  | means mandatory
 ;; #  | means optional
 ;; C  | left_command
