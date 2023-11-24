@@ -19,11 +19,18 @@ move_file_to_dir() {
 
 alias move=move_file_to_dir
 
-
 # Define the function
 make_virtual_env() {
+  # Default Python version
+  python_version="python3"
+
+  # Check if Python version argument is provided
+  if [ ! -z "$1" ]; then
+    python_version="python$1"
+  fi
+
   # Create a Python virtual environment
-  python3 -m venv .venv
+  $python_version -m venv .venv
 
   # Activate the virtual environment
   source .venv/bin/activate
@@ -37,6 +44,7 @@ make_virtual_env() {
 
 # Create an alias
 alias venv='make_virtual_env'
+
 
 
 execute_vscode() {

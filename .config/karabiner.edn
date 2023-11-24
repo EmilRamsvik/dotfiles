@@ -38,6 +38,8 @@
 
             [:##a :##left_option]
 
+            [:##d :return_or_enter] ; move to end of line
+
 
 
             ; Copy/paste/delete/undo commands 
@@ -84,16 +86,15 @@
             ]}
    {:des "wkey (apps)"
          :rules [:w-mode
-                 [:r [:km "open: Fantastical"]]
                  [:p [:km "open: Keyboard Maestro"]]
                  [:p [:km "open: Postgres"]]
                  [:f [:km "open: Finder"]]
                  [:l [:km "open: VS Code"]]
-                 [:c [:km "open: Spotify"]]
+                 [:s [:km "open: Spotify"]]
                  [:j [:km "open: Warp"]]
                  [:o [:km "open: Obsidian"]]
                  [:k [:km "open: Chrome"]]
-                 [:comma [:km "open: ChatGPT"]]
+                 [:r [:km "open: ChatGPT"]]
                  [:h [:km "open: Teams"]]
                  [:m [:km "open: Message"]]
                  
