@@ -38,16 +38,18 @@
 
             [:##a :##left_option]
 
-            [:##d :return_or_enter] ; move to end of line
+            [:##spacebar :return_or_enter] ; move to end of line
 
 
 
             ; Copy/paste/delete/undo commands 
+            [:##u :!Cz] ; undo
             [:##r :!Cz] ; undo
             [:##y :!Cc] ; copy
-            [:##p :!Cv] ; paste
-            [:##o :!CSv] ; paste from clipboard history
-            [:##u :delete_or_backspace] ; delete character
+
+            [:##o :!Cv] ; paste
+            [:##p :!CSv] ; paste from clipboard history
+            [:##x :delete_or_backspace] ; delete character
             [:##i :!Odelete_or_backspace] ; delete word
             
             ; instert commands 
