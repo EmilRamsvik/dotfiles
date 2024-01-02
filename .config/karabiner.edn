@@ -35,11 +35,10 @@
             [:##k :##up_arrow]
             [:##l :##right_arrow]
 
-
             [:##a :##left_option]
 
-            [:##spacebar :return_or_enter] ; move to end of line
-
+            [:##spacebar :return_or_enter] ; space is enter
+            [:##d [:left_option :delete_or_backspace]] ;
 
 
             ; Copy/paste/delete/undo commands 
@@ -52,6 +51,9 @@
             [:##x :delete_or_backspace] ; delete character
             [:##i :!Odelete_or_backspace] ; delete word
             
+            [:##b :!Oleft_arrow] ;  B to move back one word
+            [:##w :!Oright_arrow] ;  W to move forward one word
+
             ; instert commands 
             [:##m :!SO8] ; {
             [:##n :!O8] ; [
