@@ -39,6 +39,7 @@
 
             [:##spacebar :return_or_enter] ; space is enter
             [:##d [:left_option :delete_or_backspace]] ;
+            [:##q :!Ttab]
 
 
             ; Copy/paste/delete/undo commands 
