@@ -10,7 +10,7 @@
   :tab-mode {:key :tab :alone {:key :tab}}
    }
    :simlayers {
-  :w-mode {:key :w} ; mode for opening files and programs
+  :q-mode {:key :q} ; mode for opening files and programs
    }
 :applications {
                 :spotify ["com.spotify.client"]
@@ -89,8 +89,8 @@
             [:i :!OSCr] ; add clipboard to inbox note
             [:o :!OSCt] ; run tomatobar.  
             ]}
-   {:des "wkey (apps)"
-         :rules [:w-mode
+   {:des "qkey (apps)"
+         :rules [:q-mode
                  [:p [:km "open: Keyboard Maestro"]]
                  [:p [:km "open: Postgres"]]
                  [:f [:km "open: Finder"]]

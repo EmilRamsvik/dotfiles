@@ -56,3 +56,22 @@ execute_vscode() {
 }
 
 alias c="execute_vscode"
+
+
+
+make_dir_and_go_to_it() {
+  # Check if directory name is provided
+  if [ -z "$1" ]; then
+    echo "Directory name is required."
+    return 1
+  fi
+
+  # Create a directory
+  mkdir "$1"
+
+  # Go to the directory
+  cd "$1"
+}
+
+alias mdc="make_dir_and_go_to_it"
+

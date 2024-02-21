@@ -43,6 +43,8 @@ alias lsd="ls -lF -G | grep --color=never '^d'"
 alias ls="command ls -G"
 alias path='echo $PWD | pbcopy'
 
+
+
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -55,7 +57,6 @@ alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
 alias python="python3"
-alias python="python3"
 alias py="python3"
 alias f='open -a Finder ./'
 
@@ -64,3 +65,7 @@ alias pbc="pbcopy"
 alias pbp="pbpaste"
 
 alias be="backend/app"
+
+alias brdiff="def_branch=\$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); git diff -w origin/\$def_branch..."
+
+alias brfiles="def_branch=\$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); git diff --name-only origin/\$def_branch..."
