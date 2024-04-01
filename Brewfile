@@ -30,8 +30,12 @@ brew "dart-sdk"
 # cask "flutter"
 # cask "warp"
 
+brew "rust"
+
 cask "karabiner-elements"
 cask "rectangle"
 cask "shottr"
 cask "google-chrome"
 cask "messenger"
+cask "slack"
+cask "mindmac"
