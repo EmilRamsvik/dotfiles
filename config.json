@@ -1,0 +1,445 @@
+{
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#4340ff",
+    "notebook.focusedCellBorder": "#ff0000",
+    "[Material Theme Darker High Contrast]": {
+      "activityBarBadge.background": "#F44336",
+      "activityBar.activeBorder": "#F44336",
+      "list.activeSelectionForeground": "#F44336",
+      "list.inactiveSelectionForeground": "#F44336",
+      "list.highlightForeground": "#F44336",
+      "scrollbarSlider.activeBackground": "#F4433650",
+      "editorSuggestWidget.highlightForeground": "#F44336",
+      "textLink.foreground": "#F44336",
+      "progressBar.background": "#F44336",
+      "pickerGroup.foreground": "#F44336",
+      "tab.activeBorder": "#F44336",
+      "notificationLink.foreground": "#F44336",
+      "editorWidget.resizeBorder": "#F44336",
+      "editorWidget.border": "#F44336",
+      "settings.modifiedItemIndicator": "#F44336",
+      "settings.headerForeground": "#F44336",
+      "panelTitle.activeBorder": "#F44336",
+      "breadcrumb.activeSelectionForeground": "#F44336",
+      "menu.selectionForeground": "#F44336",
+      "menubar.selectionForeground": "#F44336",
+      "editor.findMatchBorder": "#F44336",
+      "selection.background": "#F4433640",
+      "statusBarItem.remoteBackground": "#F44336",
+    }
+  },
+  "workbench.colorTheme": "Community Material Theme Darker High Contrast",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "string.quoted.docstring.multi.python",
+        "settings": {
+          "foreground": "#da8c18" //change to your preference
+        }
+      },
+      {
+        "scope": "comment",
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#087c50",
+        }
+      },
+      {
+        "scope": "punctuation.definition.comment",
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#087c50",
+        }
+      }
+    ]
+  },
+  // "workbench.iconTheme": "vscode-icons",
+  "git.autofetch": true,
+  "python.languageServer": "Pylance",
+  "git.ignoreWindowsGit27Warning": true,
+  "git.confirmSync": false,
+  "git.suggestSmartCommit": false,
+  "diffEditor.maxComputationTime": 0,
+  "editor.fontLigatures": true,
+  "jupyter.askForKernelRestart": false,
+  "jupyter.jupyterCommandLineArguments": [],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.find.autoFindInSelection": "multiline",
+  "python.formatting.provider": "black",
+  "debug.onTaskErrors": "debugAnyway",
+  "[python]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "editor.formatOnSave": true,
+  "terminal.integrated.allowChords": false,
+  "python.analysis.completeFunctionParens": true,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "vim.useCtrlKeys": true,
+  "vim.searchHighlightColor": "rgba(227, 122, 17, 0.8)",
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    },
+    {
+      "before": [
+        "i",
+        "i"
+      ],
+      "after": [
+        "<ESC>"
+      ]
+    },
+    {
+      "before": [
+        "H"
+      ],
+      "after": [
+        "^"
+      ]
+    },
+    {
+      "before": [
+        "a",
+      ],
+      "after": [
+        "<ESC>",
+        "g",
+        "g",
+        "V",
+        "G",
+      ]
+    },
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<ESC>"
+      ]
+    },
+    {
+      "before": [
+        "i",
+        "i"
+      ],
+      "after": [
+        "<ESC>"
+      ]
+    },
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<ESC>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "z",
+      ],
+      "after": [
+        "V",
+        "<Cmd+c>"
+      ],
+    },
+    {
+      "before": [
+        "L",
+      ],
+      "after": [
+        "i",
+        "<Enter>",
+        "<ESC>",
+      ],
+    },
+    {
+      "before": [
+        "P"
+      ],
+      "after": [
+        "\"",
+        "0",
+        "p"
+      ]
+    },
+    {
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "v",
+        "$",
+        "y"
+      ]
+    },
+    {
+      "before": [
+        "ø"
+      ],
+      "after": [
+        ";"
+      ]
+    },
+    {
+      "before": [
+        "u"
+      ],
+      "commands": [
+        "undo"
+      ]
+    },
+    {
+      "before": [
+        "U"
+      ],
+      "commands": [
+        "redo"
+      ]
+    },
+    {
+      "before": [
+        "H"
+      ],
+      "after": [
+        "^"
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "after": [
+        "1",
+        "0",
+        "l"
+      ]
+    },
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "after": [
+        "1",
+        "0",
+        "h"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "after": [
+        "1",
+        "0",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "<C-j>"
+      ],
+      "after": [
+        "1",
+        "0",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "d",
+        "r",
+      ],
+      "after": [
+        "d",
+        "i",
+        "]"
+      ]
+    },
+    {
+      "before": [
+        "y",
+        "r",
+      ],
+      "after": [
+        "y",
+        "i",
+        "]"
+      ]
+    },
+    {
+      "before": [
+        "c",
+        "r",
+      ],
+      "after": [
+        "c",
+        "i",
+        "]"
+      ]
+    },
+    {
+      "before": [
+        "d",
+        "i",
+        "i"
+      ],
+      "after": [
+        "d",
+        "i",
+        "\""
+      ]
+    },
+    {
+      "before": [
+        "y",
+        "i",
+        "i"
+      ],
+      "after": [
+        "y",
+        "i",
+        "\""
+      ]
+    },
+    {
+      "before": [
+        "c",
+        "i",
+        "i"
+      ],
+      "after": [
+        "c",
+        "i",
+        "\""
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "after": [
+        "i",
+        "<CR>",
+        "<ESC>"
+      ]
+    },
+    {
+      "before": [
+        "space"
+      ],
+      "after": [
+        "/"
+      ]
+    },
+  ],
+  "vim.sneak": true,
+  "vim.easymotion": true,
+  "vim.leader": "-",
+  "vim.handleKeys": {
+    "<CMD-w>": false,
+    "<C-W>": false,
+    "<C-e>": false,
+    "<C-'>": false,
+    "<C-d>": false,
+    "<C-alt>": false,
+    "<C-F>": false,
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "editor.lineNumbers": "relative",
+  "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\powershell.exe",
+  "security.workspace.trust.untrustedFiles": "open",
+  "files.maxMemoryForLargeFilesMB": 50000,
+  "editor.inlineSuggest.enabled": true,
+  "debug.internalConsoleOptions": "neverOpen",
+  "terminal.integrated.fontFamily": "monospace",
+  "workbench.iconTheme": "vscode-icons",
+  "yaml.customTags": [
+    "!And",
+    "!And sequence",
+    "!If",
+    "!If sequence",
+    "!Not",
+    "!Not sequence",
+    "!Equals",
+    "!Equals sequence",
+    "!Or",
+    "!Or sequence",
+    "!FindInMap",
+    "!FindInMap sequence",
+    "!Base64",
+    "!Join",
+    "!Join sequence",
+    "!Cidr",
+    "!Ref",
+    "!Sub",
+    "!Sub sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!ImportValue sequence",
+    "!Select",
+    "!Select sequence",
+    "!Split",
+    "!Split sequence"
+  ],
+  "terminal.integrated.inheritEnv": false,
+  "window.zoomLevel": 2,
+  "vsicons.dontShowNewVersionMessage": true,
+  "notebook.output.textLineLimit": 50,
+  "editor.formatOnType": true,
+  "editor.hover.enabled": true,
+  "redhat.telemetry.enabled": true,
+  "workbench.startupEditor": "none",
+  "azureResourceManagerTools.parameterFiles": {
+    "/Users/emilramsvik/Documents/dev/quote-prioritization/infrastructure/azuredeploy.json": "azuredeploy.parameters.prod.json",
+    "/Users/emilramsvik/Documents/dev/qp-mlops/infrastructure/cloud-environment.json": "cloud-environment.parameters.json"
+  },
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true,
+    "python": true
+  },
+  "python.defaultInterpreterPath": "/Users/emilramsvik/Documents/notebooks/venv",
+  "workbench.editor.empty.hint": "hidden",
+  "git.openRepositoryInParentFolders": "never",
+  "editor.minimap.enabled": false,
+  "editor.inlineSuggest.suppressSuggestions": true,
+}
