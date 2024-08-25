@@ -4,9 +4,10 @@
              :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
              :open "open \"%s\""
              }
-  
+
   :layers {
-  :caps-mode {:key :caps_lock :alone {:key :escape}}
+:caps-mode {:key :caps_lock :alone {:key :escape}}
+:caps-command-mode {:key :caps_lock :alone {:key :left_command}}
   :tab-mode {:key :tab :alone {:key :tab}}
    }
    :simlayers {
@@ -24,10 +25,10 @@
     :rules [; some comment
             ;; [:left_command  :left_command nil  {:alone :!Cd}]
                 ;;   [{:key :spacebar :modi :left_shift} [:spacebar :0 :spacebar]]
-                  ; remap   
+                  ; remap
             ]}
    {:des "capslock layer"
-    :rules [; capslock layer is for navigation and copy/paste and insertions 
+    :rules [; capslock layer is for navigation and copy/paste and insertions
             :caps-mode
             ; VIM MOVE COMMANDS WHEN CAPSLOCK IS PRESSED
             [:##j :##down_arrow]
@@ -42,7 +43,7 @@
             [:##q :!Ttab]
 
 
-            ; Copy/paste/delete/undo commands 
+            ; Copy/paste/delete/undo commands
             [:##u :!Cz] ; undo
             [:##r :!Cz] ; undo
             [:##y :!Cc] ; copy
@@ -51,17 +52,17 @@
             [:##p :!CSv] ; paste from clipboard history
             [:##x :delete_or_backspace] ; delete character
             [:##i :!Odelete_or_backspace] ; delete word
-            
+
             [:##b :!Oleft_arrow] ;  B to move back one word
             [:##w :!Oright_arrow] ;  W to move forward one word
 
-            ; instert commands 
+            ; instert commands
             [:##m :!SO8] ; {
             [:##n :!O8] ; [
             [:##comma :!SO9] ; {
             [:##period :!O9] ; [
             ; NUMBER KEYS ARE SHIFT + NUMBER
-            [:1 :!S1]
+            [:1 :!Cleft_arrow]
             [:2 :!S2]
             [:3 :!S3]
             [:4 :!S4]
@@ -70,7 +71,8 @@
             [:7 :!S7]
             [:8 :!S8]
             [:9 :!S9]
-            [:0 :!S0]
+            [:0 :!Cright_arrow]
+
 
             ]}
   {:des "tab layer"
@@ -87,30 +89,28 @@
             [:t :!OTt] ; Right third
 
             [:i :!OSCr] ; add clipboard to inbox note
-            [:o :!OSCt] ; run tomatobar.  
+            [:o :!OSCt] ; run tomatobar.
             ]}
    {:des "qkey (apps)"
          :rules [:q-mode
-                 [:p [:km "open: Keyboard Maestro"]]
                  [:p [:km "open: Postgres"]]
                  [:f [:km "open: Finder"]]
+                 [:e [:km "open: Zed"]]
                  [:l [:km "open: VS Code"]]
                  [:s [:km "open: Spotify"]]
-                 [:j [:km "open: Warp"]]
+                 [:semicolon [:km "open: Warp"]]
                  [:o [:km "open: Obsidian"]]
                  [:k [:km "open: Chrome"]]
                  [:r [:km "open: ChatGPT"]]
-                 [:h [:km "open: Teams"]]
+                 [:h [:km "open: MindMac"]]
                  [:m [:km "open: Message"]]
-                 
-            
             ]}
     {:des "right command key" ; right command key for app specific commands
 :rules [
-      [:right_command :!Cl :spotify] 
-      [:right_command :!Cl :chrome] 
-      [:right_command :!Cp :vscode] 
-      
+      [:right_command :!Cl :spotify]
+      [:right_command :!Cl :chrome]
+      [:right_command :!Cp :vscode]
+
       ]
 }
    {:des "Quit application by command + Q only when pressing twice"
@@ -137,5 +137,3 @@
 ;; R  | right_shift
 ;; !! | mandatory command + control + optional + shift (hyper)
 ;; ## | optional any
-
-  

@@ -22,6 +22,7 @@ brew "terraform"
 brew "node"
 brew "yarn"
 brew "watchman"
+brew "pnpm"
 
 #Flutter/Firebase/Dart
 brew "firebase-cli"
@@ -39,3 +40,4 @@ cask "google-chrome"
 cask "messenger"
 cask "slack"
 cask "mindmac"
+cask "zed"

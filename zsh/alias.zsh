@@ -56,6 +56,7 @@ alias ipy="ipython"
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
+alias z="zed"
 alias python="python3"
 alias py="python3"
 alias f='open -a Finder ./'
