@@ -46,6 +46,15 @@ make_virtual_env() {
 alias venv='make_virtual_env'
 
 
+execute_zed() {
+  if [ "$#" -eq 0 ]; then
+    zed .
+  else
+    zed "$1"
+  fi
+}
+
+alias z="execute_zed"
 
 execute_vscode() {
   if [ "$#" -eq 0 ]; then
@@ -74,4 +83,3 @@ make_dir_and_go_to_it() {
 }
 
 alias mdc="make_dir_and_go_to_it"
-

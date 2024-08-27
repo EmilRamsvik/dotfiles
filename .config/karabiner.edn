@@ -93,14 +93,14 @@
             ]}
    {:des "qkey (apps)"
          :rules [:q-mode
+             [:k [:km "open: Chrome"]]
+             [:j [:km "open: Zed"]]
+             [:l [:km "open: Warp"]]
                  [:p [:km "open: Postgres"]]
                  [:f [:km "open: Finder"]]
-                 [:e [:km "open: Zed"]]
-                 [:l [:km "open: VS Code"]]
+                 [:c [:km "open: VS Code"]]
                  [:s [:km "open: Spotify"]]
-                 [:semicolon [:km "open: Warp"]]
                  [:o [:km "open: Obsidian"]]
-                 [:k [:km "open: Chrome"]]
                  [:r [:km "open: ChatGPT"]]
                  [:h [:km "open: MindMac"]]
                  [:m [:km "open: Message"]]

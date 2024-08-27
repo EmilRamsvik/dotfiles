@@ -29,13 +29,14 @@ alias lib="cd ./lib && ls" # flutter shortcut
 # config files
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias zshrc="code ~/.zshrc"
+
 alias zshconfig="code ~/.zshrc"
 alias config="cd ~/dotfiles"
 alias h="cd ~/"
 
 #commands
 alias l="ls -lF -G"
-# List all files colorized in long format, including dot files
+# List files colorized in long format, including dot files
 alias la="ls -laF -G"
 # List only directories
 alias lsd="ls -lF -G | grep --color=never '^d'"
@@ -56,7 +57,6 @@ alias ipy="ipython"
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
-alias z="zed"
 alias python="python3"
 alias py="python3"
 alias f='open -a Finder ./'
