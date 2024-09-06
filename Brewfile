@@ -14,7 +14,6 @@ brew "yqrashawn/goku/goku"
 brew "jq"
 brew "zsh-syntax-highlighting"
 brew "the_silver_searcher" # Code-search tool (like ack, but faster)
-brew "bear"
 brew "terraform"
 
 
@@ -26,7 +25,6 @@ brew "pnpm"
 
 #Flutter/Firebase/Dart
 brew "firebase-cli"
-brew "dart-sdk"
 
 # cask "flutter"
 # cask "warp"

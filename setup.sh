@@ -14,9 +14,12 @@ brew bundle
 
 # link to files in the github repo to make the symbolic links
 ZSHRC_SOURCE=~/dotfiles/.zshrc
-KARABINER_SOURCE=~/dotfiles/.config/karabiner.edn
+KARABINER_SOURCE=~/dotfiles/Karabiner/karabiner.edn
 LUA_SOURCE=~/dotfiles/nvim
 
+GITCONFIG_SOURCE?=~/dotfiles/.gitconfig
+
+GITCONFIG_TARGET=~/.gitconfig
 
 # Define the target files
 ZSHRC_TARGET=~/.zshrc
@@ -43,13 +46,14 @@ create_symlink() {
         ln -s $source $target
         echo "Linked $target to $source"
     fi
-    
+
 }
 
 # Create the symbolic links
 create_symlink $ZSHRC_SOURCE $ZSHRC_TARGET "false"
 create_symlink $KARABINER_SOURCE $KARABINER_TARGET "false"
 create_symlink $LUA_SOURCE $LUA_TARGET "false"
+create_symlink $GITCONFIG_SOURCE $GITCONFIG_TARGET "false"
 
 # Install the plugins
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
@@ -67,4 +71,3 @@ echo "Installing neovim plugins..."
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.zshrc
-
