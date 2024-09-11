@@ -15,6 +15,8 @@ brew "jq"
 brew "zsh-syntax-highlighting"
 brew "the_silver_searcher" # Code-search tool (like ack, but faster)
 brew "terraform"
+brew  "kubectl"
+brew  "minikube"
 
 
 #Javascript/react
@@ -39,3 +41,4 @@ cask "messenger"
 cask "slack"
 cask "mindmac"
 cask "zed"
+cask "docker"
