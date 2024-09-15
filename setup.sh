@@ -50,11 +50,19 @@ create_symlink() {
 }
 
 # Create the symbolic links
+echo "💻 Zsh"
 create_symlink $ZSHRC_SOURCE $ZSHRC_TARGET "false"
+echo "🖱️ Karabiner"
 create_symlink $KARABINER_SOURCE $KARABINER_TARGET "false"
+echo "Neovim"
 create_symlink $LUA_SOURCE $LUA_TARGET "false"
+echo "📝 Git config"
 create_symlink $GITCONFIG_SOURCE $GITCONFIG_TARGET "false"
+echo "🚀 Zed configuration"
+create_symlink "${PWD}/zed/settings.json" "${HOME}/.config/zed/settings.json" "true"
+create_symlink "${PWD}/zed/keybindings.json" "${HOME}/.config/zed/keymap.json" "false"
 
+mkdir -p "${HOME}/.config/zed/"
 # Install the plugins
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 echo "Installing plugins..."
