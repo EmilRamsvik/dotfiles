@@ -25,6 +25,8 @@ alias qp="cd ~/Documents/dev/qp-mlops"
 # development specific
 alias gha="cd ./.github/workflows && ls"
 alias lib="cd ./lib && ls" # flutter shortcut
+alias gl="git status -v -v && git diff --name-status main..."
+
 
 # config files
 alias nvimconfig="nvim ~/.config/nvim/init.vim"

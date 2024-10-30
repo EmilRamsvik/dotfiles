@@ -17,7 +17,7 @@ ZSHRC_SOURCE=~/dotfiles/.zshrc
 KARABINER_SOURCE=~/dotfiles/Karabiner/karabiner.edn
 LUA_SOURCE=~/dotfiles/nvim
 
-GITCONFIG_SOURCE?=~/dotfiles/.gitconfig
+GITCONFIG_SOURCE=~/dotfiles/gitconfig
 
 GITCONFIG_TARGET=~/.gitconfig
 
@@ -51,16 +51,16 @@ create_symlink() {
 
 # Create the symbolic links
 echo "💻 Zsh"
-create_symlink $ZSHRC_SOURCE $ZSHRC_TARGET "false"
+create_symlink $ZSHRC_SOURCE $ZSHRC_TARGET "true"
 echo "🖱️ Karabiner"
-create_symlink $KARABINER_SOURCE $KARABINER_TARGET "false"
+create_symlink $KARABINER_SOURCE $KARABINER_TARGET "true"
 echo "Neovim"
 create_symlink $LUA_SOURCE $LUA_TARGET "false"
 echo "📝 Git config"
 create_symlink $GITCONFIG_SOURCE $GITCONFIG_TARGET "false"
 echo "🚀 Zed configuration"
 create_symlink "${PWD}/zed/settings.json" "${HOME}/.config/zed/settings.json" "true"
-create_symlink "${PWD}/zed/keybindings.json" "${HOME}/.config/zed/keymap.json" "false"
+create_symlink "${PWD}/zed/keybindings.json" "${HOME}/.config/zed/keymap.json" "true"
 
 mkdir -p "${HOME}/.config/zed/"
 # Install the plugins
@@ -71,11 +71,3 @@ zsh -c "source ~/.zshrc && zinit self-update && zinit update --all"
 
 echo "Running Goku..."
 goku
-
-
-# neovim configs
-git clone https://github.com/wbthomason/packer.nvim ~/dotfiles/nvim/pack/packer/start/packer.nvim
-echo "Installing neovim plugins..."
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
-echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.zshrc
