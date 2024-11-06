@@ -1,6 +1,8 @@
 [user]
 	email = emil.ramsvik@gmail.com
 	name = Emil Ramsvik
+[push]
+  autoSetupRemote = true
 [diff "astextplain"]
 	textconv = astextplain
 [filter "lfs"]
@@ -67,6 +69,7 @@
     squash = "!git rebase -v -i $(git mainbranch)"
     publish = push origin HEAD --force-with-lease
     pub = publish
+    new = "!f() { git fetch origin && git switch -c $1 origin/main; }; f"
 
 
   # *********************
@@ -133,6 +136,7 @@
     # Create a commit that will be automatically squashed as a fixup when you
     # run `git rebase --autosquash`
     fixup = "commit --fixup=HEAD"
+	new = "!f() { git checkout -b $1 && git push --set-upstream origin $1; }; f"
 [color "status"]
 	added = yellow
 	changed = green
