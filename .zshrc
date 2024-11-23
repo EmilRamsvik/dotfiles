@@ -32,3 +32,6 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+. "$HOME/.local/bin/env"
+eval "$(uv generate-shell-completion zsh)"

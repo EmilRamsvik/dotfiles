@@ -17,9 +17,10 @@
                 :spotify ["com.spotify.client"]
                 :chrome ["com.google.Chrome"]
                 :vscode ["com.microsoft.VSCode"]
+                :cursor ["com.cursor.app"]
                 }
 
-  :main
+  :main 
 
   [{:des "main profile"
     :rules [; some comment
@@ -40,7 +41,6 @@
 
             [:##spacebar :return_or_enter] ; space is enter
             [:##d [:left_option :delete_or_backspace]] ;
-            [:##q :!Ttab]
 
 
             ; Copy/paste/delete/undo commands
@@ -56,11 +56,12 @@
             [:##b :!Oleft_arrow] ;  B to move back one word
             [:##w :!Oright_arrow] ;  W to move forward one word
 
+            [:##e :!Cright_arrow] ;  E to move forward to end of line
+            [:##q :!Cleft_arrow] ;  B to move back to start of line
             ; instert commands
-            [:##m :!SO8] ; {
-            [:##n :!O8] ; [
-            [:##comma :!SO9] ; {
-            [:##period :!O9] ; [
+            [:##m :!O8] ; [
+            [:##comma :!SO8] ; {
+            [:##period :!S8] ; (
             ; NUMBER KEYS ARE SHIFT + NUMBER
             [:1 :!Cleft_arrow]
             [:2 :!S2]

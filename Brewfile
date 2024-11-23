@@ -1,7 +1,8 @@
 tap "homebrew/bundle"
-tap "homebrew/core"
 
 brew "python"
+brew "uv" # pyython package manager
+
 
 brew "git"
 brew "zsh"
@@ -24,6 +25,7 @@ brew "node"
 brew "yarn"
 brew "watchman"
 brew "pnpm"
+brew "deno"
 
 #Flutter/Firebase/Dart
 brew "firebase-cli"
@@ -42,3 +44,4 @@ cask "slack"
 cask "mindmac"
 cask "zed"
 cask "docker"
+cask "cursor"
