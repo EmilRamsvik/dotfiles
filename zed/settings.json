@@ -24,7 +24,7 @@
   "buffer_font_size": 16,
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "NeoSolarized Light",
     "dark": "Gruvbox Dark Hard"
   },
   "features": {

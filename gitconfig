@@ -70,6 +70,7 @@
     publish = push origin HEAD --force-with-lease
     pub = publish
     new = "!f() { git fetch origin && git switch -c $1 origin/main; }; f"
+    quick = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
 
 
   # *********************

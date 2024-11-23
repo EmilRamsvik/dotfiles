@@ -18,7 +18,6 @@ KARABINER_SOURCE=~/dotfiles/Karabiner/karabiner.edn
 LUA_SOURCE=~/dotfiles/nvim
 
 GITCONFIG_SOURCE=~/dotfiles/gitconfig
-
 GITCONFIG_TARGET=~/.gitconfig
 
 # Define the target files
@@ -43,6 +42,7 @@ create_symlink() {
             echo "Aborted!"
         fi
     else
+        rm -f $target
         ln -s $source $target
         echo "Linked $target to $source"
     fi
@@ -60,7 +60,7 @@ echo "📝 Git config"
 create_symlink $GITCONFIG_SOURCE $GITCONFIG_TARGET "false"
 echo "🚀 Zed configuration"
 create_symlink "${PWD}/zed/settings.json" "${HOME}/.config/zed/settings.json" "true"
-create_symlink "${PWD}/zed/keybindings.json" "${HOME}/.config/zed/keymap.json" "true"
+create_symlink "${PWD}/zed/keymap.json" "${HOME}/.config/zed/keymap.json" "true"
 
 mkdir -p "${HOME}/.config/zed/"
 # Install the plugins
