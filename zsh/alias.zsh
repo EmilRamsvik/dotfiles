@@ -26,6 +26,7 @@ alias qp="cd ~/Documents/dev/qp-mlops"
 alias gha="cd ./.github/workflows && ls"
 alias lib="cd ./lib && ls" # flutter shortcut
 alias gl="git status -v -v && git diff --name-status main..."
+alias gl="git push"
 
 
 # config files
@@ -58,18 +59,11 @@ alias g="git"
 alias ipy="ipython"
 alias vim="nvim"
 alias vi="nvim"
-alias v="nvim"
 alias python="python3"
 alias py="python3"
 alias f='open -a Finder ./'
 
 alias t="touch"
-alias pbc="copy"
 alias pbp="pbpaste"
 alias clip="pbcopy <"
 
-alias be="backend/app"
-
-alias brdiff="def_branch=\$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); git diff -w origin/\$def_branch..."
-
-alias brfiles="def_branch=\$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); git diff --name-only origin/\$def_branch..."

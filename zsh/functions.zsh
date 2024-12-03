@@ -53,7 +53,6 @@ execute_zed() {
     zed "$1"
   fi
 }
-
 alias z="execute_zed"
 
 execute_vscode() {
@@ -63,10 +62,17 @@ execute_vscode() {
     code "$1"
   fi
 }
+alias v="execute_vscode"
 
-alias c="execute_vscode"
 
-
+execute_cursor() {
+  if [ "$#" -eq 0 ]; then
+    cursor .
+  else
+    cursor "$1"
+  fi
+}
+alias c="execute_cursor"
 
 make_dir_and_go_to_it() {
   # Check if directory name is provided

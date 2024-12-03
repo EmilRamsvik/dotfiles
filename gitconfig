@@ -101,8 +101,6 @@
     remotes = "remote -v"
 
     # Shorten common commands
-    co = "checkout"
-    st = "status"
     br = "branch"
     ci = "commit"
     d = "diff"
