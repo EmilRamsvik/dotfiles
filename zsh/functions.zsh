@@ -88,4 +88,4 @@ make_dir_and_go_to_it() {
   cd "$1"
 }
 
-alias mdc="make_dir_and_go_to_it"
+alias mc="make_dir_and_go_to_it"

@@ -17,16 +17,13 @@ alias p="cd ~/Documents/Projects"
 
 # local
 alias src="cd app/src"
-alias bend="cd ~/Documents/dev/CustomerDashboard/customerdashboard/backend/app"
-alias fend="cd ~/Documents/dev/CustomerDashboard/customerdashboard/frontend/src"
-alias ci="cd ~/Documents/dev/CustomerDashboard"
-alias qp="cd ~/Documents/dev/qp-mlops"
 
 # development specific
 alias gha="cd ./.github/workflows && ls"
 alias lib="cd ./lib && ls" # flutter shortcut
 alias gl="git status -v -v && git diff --name-status main..."
-alias gl="git push"
+alias gp="git push"
+alias ga="git add ."
 
 
 # config files
