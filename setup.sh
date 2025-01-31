@@ -15,7 +15,6 @@ brew bundle
 # link to files in the github repo to make the symbolic links
 ZSHRC_SOURCE=~/dotfiles/.zshrc
 KARABINER_SOURCE=~/dotfiles/Karabiner/karabiner.edn
-LUA_SOURCE=~/dotfiles/nvim
 
 GITCONFIG_SOURCE=~/dotfiles/gitconfig
 GITCONFIG_TARGET=~/.gitconfig
@@ -23,7 +22,6 @@ GITCONFIG_TARGET=~/.gitconfig
 # Define the target files
 ZSHRC_TARGET=~/.zshrc
 KARABINER_TARGET=~/.config/karabiner.edn
-LUA_TARGET=~/.config/nvim
 
 # Function to create symbolic links
 create_symlink() {
@@ -54,8 +52,6 @@ echo "💻 Zsh"
 create_symlink $ZSHRC_SOURCE $ZSHRC_TARGET "true"
 echo "🖱️ Karabiner"
 create_symlink $KARABINER_SOURCE $KARABINER_TARGET "true"
-echo "Neovim"
-create_symlink $LUA_SOURCE $LUA_TARGET "false"
 echo "📝 Git config"
 create_symlink $GITCONFIG_SOURCE $GITCONFIG_TARGET "false"
 echo "🚀 Zed configuration"

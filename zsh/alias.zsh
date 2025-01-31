@@ -15,8 +15,6 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Documents/Projects"
 
-# local
-alias src="cd app/src"
 
 # development specific
 alias gha="cd ./.github/workflows && ls"
@@ -25,11 +23,7 @@ alias gl="git status -v -v && git diff --name-status main..."
 alias gp="git push"
 alias lg="lazygit"
 
-# config files
-alias nvimconfig="nvim ~/.config/nvim/init.vim"
-alias zshrc="code ~/.zshrc"
 
-alias zshconfig="code ~/.zshrc"
 alias config="cd ~/dotfiles"
 alias h="cd ~/"
 
