@@ -68,6 +68,8 @@ bash -c "$(curl --fail --show-error --silent --location https://raw.githubuserco
 echo "Installing plugins..."
 zsh -c "source ~/.zshrc && zinit self-update && zinit update --all"
 
+echo "Creating a folder structure"
+./create_folders.sh
 
 echo "Running Goku..."
 goku
