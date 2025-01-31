@@ -23,8 +23,7 @@ alias gha="cd ./.github/workflows && ls"
 alias lib="cd ./lib && ls" # flutter shortcut
 alias gl="git status -v -v && git diff --name-status main..."
 alias gp="git push"
-alias ga="git add ."
-
+alias lg="lazygit"
 
 # config files
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
