@@ -18,7 +18,7 @@ brew "the_silver_searcher" # Code-search tool (like ack, but faster)
 brew "terraform"
 brew  "kubectl"
 brew  "minikube"
-
+brew "jesseduffield/lazygit/lazygit"
 
 #Javascript/react
 brew "node"
