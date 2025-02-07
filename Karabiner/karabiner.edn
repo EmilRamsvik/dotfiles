@@ -59,9 +59,6 @@
             [:##e :!Cright_arrow] ;  E to move forward to end of line
             [:##q :!Cleft_arrow] ;  B to move back to start of line
             ; instert commands
-            [:##m :!O8] ; [
-            [:##comma :!SO8] ; {
-            [:##period :!S8] ; (
             ; NUMBER KEYS ARE SHIFT + NUMBER
             [:1 :!Cleft_arrow]
             [:2 :!S2]
@@ -91,6 +88,13 @@
 
             [:i :!OSCr] ; add clipboard to inbox note
             [:o :!OSCt] ; run tomatobar.
+            
+            [:h :!O8] ; [
+            [:l :!O9] ; [
+            [:j :!SO8] ; {
+            [:k :!SO9] ; }
+            [:n :!S8] ; (
+            [:m :!S9] ; (
             ]}
    {:des "qkey (apps)"
          :rules [:q-mode
