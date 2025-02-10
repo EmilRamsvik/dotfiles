@@ -43,6 +43,9 @@ cask "warp"
 cask "Alfred"
 cask "zed"
 cask "docker"
+cask "arc"
+
+
 cask "cursor"
 cask "obsidian"
 cask "microsoft-teams"
