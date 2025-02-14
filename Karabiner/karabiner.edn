@@ -72,6 +72,13 @@
             [:0 :!Cright_arrow]
 
 
+            [:n :!O8] ; [
+            [:period :!O9] ; ]
+            [:m :!SO8] ; {
+            [:comma :!SO9] ; }
+            [:semicolon :!S8] ; (
+            [:quote :!S9] ; )
+            
             ]}
   {:des "tab layer"
     :rules [; for tabbing between windows and running commands
