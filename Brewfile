@@ -44,6 +44,7 @@ cask "Alfred"
 cask "zed"
 cask "docker"
 cask "arc"
+cask "keyboard-maestro"
 
 
 cask "cursor"
