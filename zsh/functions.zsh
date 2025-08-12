@@ -46,14 +46,6 @@ make_virtual_env() {
 alias venv='make_virtual_env'
 
 
-execute_zed() {
-  if [ "$#" -eq 0 ]; then
-    zed .
-  else
-    zed "$1"
-  fi
-}
-alias z="execute_zed"
 
 execute_vscode() {
   if [ "$#" -eq 0 ]; then
@@ -72,7 +64,7 @@ execute_cursor() {
     cursor "$1"
   fi
 }
-alias cu="execute_cursor"
+alias c="execute_cursor"
 
 make_dir_and_go_to_it() {
   # Check if directory name is provided
@@ -89,3 +81,5 @@ make_dir_and_go_to_it() {
 }
 
 alias mc="make_dir_and_go_to_it"
+
+echo "Functions loaded"

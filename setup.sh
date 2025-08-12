@@ -61,8 +61,6 @@ create_symlink "${PWD}/zed/keymap.json" "${HOME}/.config/zed/keymap.json" "true"
 mkdir -p "${HOME}/.config/zed/"
 # Install the plugins
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-echo "Installing plugins..."
-zsh -c "source ~/.zshrc && zinit self-update && zinit update --all"
 
 echo "Creating a folder structure"
 ./create_folders.sh

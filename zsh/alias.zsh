@@ -52,3 +52,4 @@ alias f='open -a Finder ./'
 alias t="touch"
 alias clip="pbcopy <"
 
+echo "Alias Loaded"

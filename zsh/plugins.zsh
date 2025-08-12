@@ -1,3 +1,3 @@
-plugins=(git common-aliases  docker macos python 
-	 zsh-autosuggestions thefuck autojump
+plugins=(docker macos python 
+	 zsh-autosuggestions thefuck autojump 
 	)
