@@ -32,10 +32,10 @@ export ENABLE_FLUTTER_DESKTOP="true"
 # Python Settings
 # --------------
 
-# pyenv settings
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# # pyenv settings - commented out
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
 
 # pipenv settings
 if [[ "$(command -v pipenv)" ]]; then
@@ -44,8 +44,8 @@ fi
 
 
 
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 
 # --------------

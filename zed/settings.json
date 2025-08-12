@@ -99,7 +99,7 @@
   },
   // Turn off telemetry
   "telemetry": {
-    "diagnostics": false,
+    "diagnostics": true,
     "metrics": false
   },
   // Move all panel to the right

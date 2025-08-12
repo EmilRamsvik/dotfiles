@@ -77,8 +77,7 @@
             [:m :!SO8] ; {
             [:comma :!SO9] ; }
             [:semicolon :!S8] ; (
-            [:quote :!S9] ; )
-            
+           
             ]}
   {:des "tab layer"
     :rules [; for tabbing between windows and running commands
@@ -105,17 +104,16 @@
             ]}
    {:des "qkey (apps)"
          :rules [:q-mode
-             [:k [:km "open: Chrome"]]
-             [:j [:km "open: Zed"]]
-             [:l [:km "open: Warp"]]
-                 [:p [:km "open: Postgres"]]
-                 [:f [:km "open: Finder"]]
-                 [:c [:km "open: VS Code"]]
-                 [:s [:km "open: Spotify"]]
-                 [:o [:km "open: Obsidian"]]
-                 [:r [:km "open: ChatGPT"]]
-                 [:h [:km "open: MindMac"]]
-                 [:m [:km "open: Message"]]
+              [:k [:km "open: Arc"]]
+              [:j [:km "open: Cursor"]]
+              [:l [:km "open: Warp"]]
+              [:f [:km "open: Finder"]]
+              [:s [:km "open: Spotify"]]
+              [:n [:km "open: Obsidian"]]
+              [:r [:km "open: ChatGPT"]]
+              [:m [:km "open: Message"]]
+              [:e [:km "open: Teams"]]
+              [:w [:km "open: Slack"]]
             ]}
     {:des "right command key" ; right command key for app specific commands
 :rules [

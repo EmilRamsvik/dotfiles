@@ -72,7 +72,7 @@ execute_cursor() {
     cursor "$1"
   fi
 }
-alias c="execute_cursor"
+alias cu="execute_cursor"
 
 make_dir_and_go_to_it() {
   # Check if directory name is provided

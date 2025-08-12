@@ -138,6 +138,7 @@
     fixup = "commit --fixup=HEAD"
 	new = "!f() { git checkout -b $1 && git push --set-upstream origin $1; }; f"
 	credit = "! git shortlog -sn --no-merges | awk \"{s+=\\$1} END {for (i=1;i<=NR;i++) {printf \\\"%d %6.1f%% %s\\n\\\",\\$1,(\\$1/s)*100,\\$2}}\""
+	md = mkdir
 [color "status"]
 	added = yellow
 	changed = green
