@@ -37,11 +37,12 @@
             [:##k :##up_arrow]
             [:##l :##right_arrow]
 
-            [:##a :##left_option]
+            [:##a [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow]]
+            [:##s [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
 
             [:##spacebar :return_or_enter] ; space is enter
-            [:##d [:left_option :delete_or_backspace]] ;
-
+            [:##d [:!Cright_arrow :!Cdelete_or_backspace :delete_or_backspace]] ; go to end, delete line, then delete again
+  
 
             ; Copy/paste/delete/undo commands
             [:##u :!Cz] ; undo
