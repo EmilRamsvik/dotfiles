@@ -49,6 +49,9 @@ alias python="python3"
 alias py="python3"
 alias f='open -a Finder ./'
 
+# virtual environment
+alias virt="source .venv/bin/activate"
+
 alias t="touch"
 alias clip="pbcopy <"
 

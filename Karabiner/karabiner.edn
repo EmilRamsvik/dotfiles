@@ -105,15 +105,15 @@
             ]}
    {:des "qkey (apps)"
          :rules [:q-mode
-              [:k [:km "open: Arc"]]
+              [:k [:km "open: Helium"]]
               [:j [:km "open: Cursor"]]
-              [:l [:km "open: Warp"]]
+              [:l [:km "open: Ghostty"]]
               [:f [:km "open: Finder"]]
               [:s [:km "open: Spotify"]]
               [:n [:km "open: Obsidian"]]
               [:r [:km "open: ChatGPT"]]
               [:m [:km "open: Message"]]
-              [:e [:km "open: Teams"]]
+              [:e [:km "open: Claude"]]
               [:w [:km "open: Slack"]]
             ]}
     {:des "right command key" ; right command key for app specific commands
