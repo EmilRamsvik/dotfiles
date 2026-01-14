@@ -40,6 +40,19 @@
             [:##a [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow]]
             [:##s [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
 
+            ; VISUAL SELECTION MODE (shift + vim keys for selection)
+            [:##!Sh :!Sleft_arrow] ; caps + shift + h = select left
+            [:##!Sj :!Sdown_arrow] ; caps + shift + j = select down
+            [:##!Sk :!Sup_arrow] ; caps + shift + k = select up
+            [:##!Sl :!Sright_arrow] ; caps + shift + l = select right
+
+            ; WORD/LINE SELECTION
+            [:##!Sw :!OSright_arrow] ; caps + shift + w = select word forward
+            [:##!Sb :!OSleft_arrow] ; caps + shift + b = select word backward
+            [:##!Sv [:!CSleft_arrow :!CSright_arrow]] ; caps + shift + v = select entire line
+            [:##!Sa :!CSup_arrow] ; caps + shift + a = select to beginning of document
+            [:##!Ss :!CSdown_arrow] ; caps + shift + s = select to end of document
+
             [:##spacebar :return_or_enter] ; space is enter
             [:##d [:!Cright_arrow :!Cdelete_or_backspace :delete_or_backspace]] ; go to end, delete line, then delete again
   
@@ -115,6 +128,20 @@
               [:m [:km "open: Message"]]
               [:e [:km "open: Teams"]]
               [:w [:km "open: Slack"]]
+            ]}
+   {:des "Spotify controls"
+    :rules [; Media controls for Spotify
+            [:play_or_pause ["osascript" "-e" "tell application \"Spotify\" to playpause"]]
+            [:fastforward ["osascript" "-e" "tell application \"Spotify\" to next track"]]
+            [:rewind ["osascript" "-e" "tell application \"Spotify\" to previous track"]]
+
+            ; Additional Spotify controls with fn + media keys
+            [:!Fplay_or_pause ["osascript" "-e" "tell application \"Spotify\" to set shuffling to not shuffling"]] ; fn + play = toggle shuffle
+            [:!Ffastforward ["osascript" "-e" "tell application \"Spotify\" to set repeating to not repeating"]] ; fn + next = toggle repeat
+
+            ; Volume controls for Spotify
+            [:!Svolume_increment ["osascript" "-e" "tell application \"Spotify\" to set sound volume to (sound volume + 10)"]] ; shift + vol up
+            [:!Svolume_decrement ["osascript" "-e" "tell application \"Spotify\" to set sound volume to (sound volume - 10)"]] ; shift + vol down
             ]}
     {:des "right command key" ; right command key for app specific commands
 :rules [
