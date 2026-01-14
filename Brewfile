@@ -15,6 +15,7 @@ brew "terraform"
 brew  "minikube"
 brew "jesseduffield/lazygit/lazygit"
 brew "gpg"
+brew "ollama"
 
 #Javascript/react
 brew "node"

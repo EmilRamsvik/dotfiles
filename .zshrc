@@ -1,26 +1,46 @@
+# ============================================================================
+# ZSH Configuration
+# ============================================================================
+# Main configuration file that sources all modular components
+# Location: ~/.zshrc
+# ============================================================================
+
+# ------------------------------------------------------------------------------
+# Oh-My-Zsh Configuration
+# ------------------------------------------------------------------------------
 export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
 ZSH_THEME="robbyrussell"
 
+# Update mode: reminder (will prompt when updates are available)
+zstyle ':omz:update' mode reminder
 
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Load Oh-My-Zsh
+source $ZSH/oh-my-zsh.sh
 
-# Source the external configuration files
-source ~/dotfiles/zsh/alias.zsh
-source ~/dotfiles/zsh/environment.zsh
-source ~/dotfiles/zsh/plugins.zsh
-source ~/dotfiles/zsh/settings.zsh
-source ~/dotfiles/zsh/local.zsh
-source ~/dotfiles/zsh/functions.zsh
+# ------------------------------------------------------------------------------
+# Load Modular Configuration Files
+# ------------------------------------------------------------------------------
+# Order matters: environment → settings → plugins → functions → aliases → local
 
+DOTFILES_ZSH="${HOME}/dotfiles/zsh"
 
+# Environment variables and PATH configuration
+[ -f "${DOTFILES_ZSH}/environment.zsh" ] && source "${DOTFILES_ZSH}/environment.zsh"
 
+# Shell settings and preferences
+[ -f "${DOTFILES_ZSH}/settings.zsh" ] && source "${DOTFILES_ZSH}/settings.zsh"
 
-export PATH="/usr/local/opt/python@3.12/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+# Plugin configuration
+[ -f "${DOTFILES_ZSH}/plugins.zsh" ] && source "${DOTFILES_ZSH}/plugins.zsh"
+
+# Custom functions
+[ -f "${DOTFILES_ZSH}/functions.zsh" ] && source "${DOTFILES_ZSH}/functions.zsh"
+
+# Aliases and shortcuts
+[ -f "${DOTFILES_ZSH}/alias.zsh" ] && source "${DOTFILES_ZSH}/alias.zsh"
+
+# Local overrides (machine-specific settings, not tracked in git)
+[ -f "${DOTFILES_ZSH}/local.zsh" ] && source "${DOTFILES_ZSH}/local.zsh"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
