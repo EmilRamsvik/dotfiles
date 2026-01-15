@@ -103,6 +103,41 @@
             [:n :!S8] ; (
             [:m :!S9] ; (
             ]}
+   {:des "system shortcuts"
+    :rules [; System control shortcuts for keyboard lights, screen lock, etc.
+            ; Keyboard backlight controls
+            [:!TOSf5 :illumination_decrement] ; Ctrl+Opt+Shift+F5: Keyboard light down
+            [:!TOSf6 :illumination_increment] ; Ctrl+Opt+Shift+F6: Keyboard light up
+
+            ; Screen and power management
+            [:!TOSl :!CQq] ; Ctrl+Opt+Shift+L: Lock screen (Cmd+Ctrl+Q)
+            [:!TOSs ["pmset-sleep" {:shell "pmset displaysleepnow"}]] ; Ctrl+Opt+Shift+S: Display sleep
+
+            ; Do Not Disturb toggle (macOS Ventura+)
+            [:!TOSd :!CSdo_not_disturb] ; Ctrl+Opt+Shift+D: Toggle Do Not Disturb
+
+            ; Mission Control and Desktop
+            [:!TOSm :mission_control] ; Ctrl+Opt+Shift+M: Mission Control
+            [:!TOSh :show_desktop] ; Ctrl+Opt+Shift+H: Show Desktop
+
+            ; Screenshot shortcuts (alternative to default)
+            [:!TOS3 :!CS3] ; Ctrl+Opt+Shift+3: Screenshot entire screen
+            [:!TOS4 :!CS4] ; Ctrl+Opt+Shift+4: Screenshot selection
+            [:!TOS5 :!CS5] ; Ctrl+Opt+Shift+5: Screenshot options
+
+            ; Media controls
+            [:!TOSp :play_or_pause] ; Ctrl+Opt+Shift+P: Play/Pause
+            [:!TOSleft_bracket :rewind] ; Ctrl+Opt+Shift+[: Previous track
+            [:!TOSright_bracket :fastforward] ; Ctrl+Opt+Shift+]: Next track
+
+            ; Volume controls (fine-grained with Shift+Option)
+            [:!SOup_arrow :volume_increment] ; Shift+Opt+Up: Volume up (small increment)
+            [:!SOdown_arrow :volume_decrement] ; Shift+Opt+Down: Volume down (small increment)
+
+            ; Brightness controls (fine-grained with Shift+Option)
+            [:!SOright_arrow :display_brightness_increment] ; Shift+Opt+Right: Brightness up
+            [:!SOleft_arrow :display_brightness_decrement] ; Shift+Opt+Left: Brightness down
+            ]}
    {:des "qkey (apps)"
          :rules [:q-mode
               [:k [:km "open: Arc"]]
