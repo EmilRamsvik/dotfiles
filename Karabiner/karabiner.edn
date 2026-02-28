@@ -31,14 +31,16 @@
    {:des "capslock layer"
     :rules [; capslock layer is for navigation and copy/paste and insertions
             :caps-mode
-            ; VIM MOVE COMMANDS WHEN CAPSLOCK IS PRESSED
+            ; 4-TIER NAVIGATION SYSTEM
+            ; Tier 1: Character/Line movement (h/j/k/l)
             [:##j :##down_arrow]
             [:##h :##left_arrow] ; ## means you can press things together
             [:##k :##up_arrow]
             [:##l :##right_arrow]
 
-            [:##a [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow]]
-            [:##s [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
+            ; Tier 3: Page jumping (a/s)
+            [:##a :page_up]
+            [:##s :page_down]
 
             ; VISUAL SELECTION MODE (shift + vim keys for selection)
             [:##!Sh :!Sleft_arrow] ; caps + shift + h = select left
@@ -50,6 +52,8 @@
             [:##!Sw :!OSright_arrow] ; caps + shift + w = select word forward
             [:##!Sb :!OSleft_arrow] ; caps + shift + b = select word backward
             [:##!Sv [:!CSleft_arrow :!CSright_arrow]] ; caps + shift + v = select entire line
+
+            ; Tier 4: Document-level selection (shift + a/s)
             [:##!Sa :!CSup_arrow] ; caps + shift + a = select to beginning of document
             [:##!Ss :!CSdown_arrow] ; caps + shift + s = select to end of document
 
@@ -67,11 +71,13 @@
             [:##x :delete_or_backspace] ; delete character
             [:##i :!Odelete_or_backspace] ; delete word
 
+            ; Tier 2: Word movement (b/w)
             [:##b :!Oleft_arrow] ;  B to move back one word
             [:##w :!Oright_arrow] ;  W to move forward one word
 
+            ; Line start/end movement
             [:##e :!Cright_arrow] ;  E to move forward to end of line
-            [:##q :!Cleft_arrow] ;  B to move back to start of line
+            [:##q :!Cleft_arrow] ;  Q to move back to start of line
             ; instert commands
             ; NUMBER KEYS ARE SHIFT + NUMBER
             [:1 :!Cleft_arrow]
