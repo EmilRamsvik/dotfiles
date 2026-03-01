@@ -31,14 +31,31 @@
    {:des "capslock layer"
     :rules [; capslock layer is for navigation and copy/paste and insertions
             :caps-mode
-            ; VIM MOVE COMMANDS WHEN CAPSLOCK IS PRESSED
+            ; 4-TIER NAVIGATION SYSTEM
+            ; Tier 1: Character/Line movement (h/j/k/l)
             [:##j :##down_arrow]
             [:##h :##left_arrow] ; ## means you can press things together
             [:##k :##up_arrow]
             [:##l :##right_arrow]
 
-            [:##a [:up_arrow :up_arrow :up_arrow :up_arrow :up_arrow]]
-            [:##s [:down_arrow :down_arrow :down_arrow :down_arrow :down_arrow]]
+            ; Tier 3: Page jumping (a/s)
+            [:##a :page_up]
+            [:##s :page_down]
+
+            ; VISUAL SELECTION MODE (shift + vim keys for selection)
+            [:##!Sh :!Sleft_arrow] ; caps + shift + h = select left
+            [:##!Sj :!Sdown_arrow] ; caps + shift + j = select down
+            [:##!Sk :!Sup_arrow] ; caps + shift + k = select up
+            [:##!Sl :!Sright_arrow] ; caps + shift + l = select right
+
+            ; WORD/LINE SELECTION
+            [:##!Sw :!OSright_arrow] ; caps + shift + w = select word forward
+            [:##!Sb :!OSleft_arrow] ; caps + shift + b = select word backward
+            [:##!Sv [:!CSleft_arrow :!CSright_arrow]] ; caps + shift + v = select entire line
+
+            ; Tier 4: Document-level selection (shift + a/s)
+            [:##!Sa :!CSup_arrow] ; caps + shift + a = select to beginning of document
+            [:##!Ss :!CSdown_arrow] ; caps + shift + s = select to end of document
 
             [:##spacebar :return_or_enter] ; space is enter
             [:##d [:!Cright_arrow :!Cdelete_or_backspace :delete_or_backspace]] ; go to end, delete line, then delete again
@@ -54,11 +71,13 @@
             [:##x :delete_or_backspace] ; delete character
             [:##i :!Odelete_or_backspace] ; delete word
 
+            ; Tier 2: Word movement (b/w)
             [:##b :!Oleft_arrow] ;  B to move back one word
             [:##w :!Oright_arrow] ;  W to move forward one word
 
+            ; Line start/end movement
             [:##e :!Cright_arrow] ;  E to move forward to end of line
-            [:##q :!Cleft_arrow] ;  B to move back to start of line
+            [:##q :!Cleft_arrow] ;  Q to move back to start of line
             ; instert commands
             ; NUMBER KEYS ARE SHIFT + NUMBER
             [:1 :!Cleft_arrow]
@@ -115,6 +134,20 @@
               [:m [:km "open: Message"]]
               [:e [:km "open: Claude"]]
               [:w [:km "open: Slack"]]
+            ]}
+   {:des "Spotify controls"
+    :rules [; Media controls for Spotify
+            [:play_or_pause ["osascript" "-e" "tell application \"Spotify\" to playpause"]]
+            [:fastforward ["osascript" "-e" "tell application \"Spotify\" to next track"]]
+            [:rewind ["osascript" "-e" "tell application \"Spotify\" to previous track"]]
+
+            ; Additional Spotify controls with fn + media keys
+            [:!Fplay_or_pause ["osascript" "-e" "tell application \"Spotify\" to set shuffling to not shuffling"]] ; fn + play = toggle shuffle
+            [:!Ffastforward ["osascript" "-e" "tell application \"Spotify\" to set repeating to not repeating"]] ; fn + next = toggle repeat
+
+            ; Volume controls for Spotify
+            [:!Svolume_increment ["osascript" "-e" "tell application \"Spotify\" to set sound volume to (sound volume + 10)"]] ; shift + vol up
+            [:!Svolume_decrement ["osascript" "-e" "tell application \"Spotify\" to set sound volume to (sound volume - 10)"]] ; shift + vol down
             ]}
     {:des "right command key" ; right command key for app specific commands
 :rules [
