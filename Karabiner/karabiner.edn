@@ -147,6 +147,7 @@
               [:s [:km "open: Spotify"]]
               [:n [:km "open: Obsidian"]]
               [:r [:km "open: ChatGPT"]]
+              [:h [:km "open: Todoist"]]
               [:m [:km "open: Message"]]
               [:e [:km "open: Teams"]]
               [:w [:km "open: Slack"]]
