@@ -83,6 +83,7 @@ alias ol="ollama"
 alias olrun="ollama run"
 alias ollist="ollama list"
 alias olps="ollama ps"
+alias cc="claude"
 
 # ------------------------------------------------------------------------------
 # System Shortcuts
