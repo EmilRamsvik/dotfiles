@@ -75,8 +75,8 @@ fi
 # ------------------------------------------------------------------------------
 
 # Default editor
-export EDITOR="cursor"
-export VISUAL="cursor"
+export EDITOR="zed --wait"
+export VISUAL="zed --wait"
 
 # ------------------------------------------------------------------------------
 # Shell Enhancement Tools

@@ -82,16 +82,28 @@ Defined in `Karabiner/karabiner.edn`, compiled with [Goku](https://github.com/yq
 | Layer | Trigger | Purpose |
 |---|---|---|
 | Caps layer | hold Caps Lock (tap = Esc) | vim-style navigation, selection, editing; `0`/`e` = line start/end, `g`/`⇧g` = document top/bottom, `t`/`⇧t` = next/prev tab, `u`/`r` = undo/redo |
-| Tab layer | hold Tab (tap = Tab) | symbols (`h l j k n m` = `[ ] { } ( )`) and Keyboard Maestro macros |
+| Tab layer | hold Tab (tap = Tab) | symbols (`h l j k n m` = `[ ] { } ( )`); `i`/`o` trigger Hammerspoon inbox/pomodoro |
 | `w`-layer | hold `w` + key | Rectangle window management (`h/l/j/k` halves, `m` maximize, `u/i/o` thirds, `y/p` two-thirds, `c` center) |
 | `q`-layer | hold `q` + key | app launcher via `open -a` |
 | Hyper | hold right ⌘ (tap = right ⌘) | ⌘⌃⌥⇧ — private hotkey namespace for Hammerspoon/Keyboard Maestro |
 
 Note: `q`- and `w`-layers are simultaneous-key layers ("simlayers"). If holding-a-letter ever misfires while typing fast, add a lower `:simlayer-threshold` (milliseconds) at the top level of `karabiner.edn`.
 
-## Automation under version control
+## Hammerspoon
 
-- **Hammerspoon**: config lives in `hammerspoon/init.lua`, symlinked to `~/.hammerspoon` — it's Lua code, so it's fully version-controlled. Hyper+R reloads; the config also reloads itself when a `.lua` file changes.
+Config lives in `hammerspoon/`, symlinked to `~/.hammerspoon` — one module per automation, machine-specific settings (paths, app names, URL routes) in `hammerspoon/config.lua`. Hyper+R reloads; the config also reloads itself when a `.lua` file changes.
+
+| Module | Binding | What it does |
+|---|---|---|
+| `apps.lua` | hyper + letter | focus-or-hide app toggles (letters mirror the q-layer: `j` Zed, `l` Ghostty, `w` Slack, `g` Chrome, …) |
+| `search.lua` | hyper+`b` | Spotlight-style Google search / open-URL prompt (port of `autohotkey/google_search.ahk`) |
+| `spotify.lua` | hyper+`space`, hyper+`←`/`→` | now-playing HUD, previous/next track |
+| `inbox.lua` | hyper+`i` (also Karabiner tab+`i`) | append clipboard with timestamp + source app to the Obsidian inbox note (replaces the KM macro) |
+| `pomodoro.lua` | hyper+`p` (also Karabiner tab+`o`) | menubar pomodoro timer (replaces TomatoBar) |
+| `urls.lua` | automatic | URL dispatcher: Hammerspoon becomes the system default browser and routes links — everything opens in Google Chrome unless a domain rule in `config.lua` says otherwise. macOS asks once to confirm the handoff. |
+| `layouts.lua` | hyper+`1`/`2` + automatic | coding / communication window layouts; auto-applies coding layout when an external monitor connects and maximizes everything on disconnect |
+
+## Automation under version control
 - **AppleScript**: keep sources as plain-text `.applescript` files in `scripts/` (not binary `.scpt`). Run and capture output with `osascript scripts/foo.applescript > result.txt`.
 - **Keyboard Maestro**: run `scripts/export-km-macros.sh` to export every macro group as a diffable `.kmmacros` XML file into `keyboard-maestro/` and auto-commit changes. Trigger it from a KM macro on a timer or a `launchd`/cron job to keep it current.
 

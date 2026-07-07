@@ -44,6 +44,6 @@ cask "hammerspoon"
 cask "ghostty"
 
 
-cask "cursor"
+cask "zed"
 cask "obsidian"
 cask "keeper-password-manager"
