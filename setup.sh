@@ -76,6 +76,8 @@ create_symlink $GITCONFIG_SOURCE $GITCONFIG_TARGET "false"
 echo "🚀 Zed configuration"
 create_symlink "${DOTFILES_DIR}/zed/settings.json" "${HOME}/.config/zed/settings.json" "true"
 create_symlink "${DOTFILES_DIR}/zed/keymap.json" "${HOME}/.config/zed/keymap.json" "true"
+echo "🔨 Hammerspoon"
+create_symlink "${DOTFILES_DIR}/hammerspoon" "${HOME}/.hammerspoon" "true"
 
 # Install the plugins
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
@@ -85,3 +87,7 @@ echo "Creating a folder structure"
 
 echo "Running Goku..."
 goku
+
+# Keep goku watching karabiner.edn so edits apply on save
+echo "Starting Goku watch service..."
+brew services start goku

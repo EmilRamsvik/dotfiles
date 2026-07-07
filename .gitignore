@@ -36,3 +36,6 @@ Desktop.ini
 
 # Oh-My-Zsh installer temp files
 oh-my-zsh-install.sh
+
+# Karabiner compiled output and automatic backups (karabiner.edn is the source of truth)
+Karabiner/karabiner/
