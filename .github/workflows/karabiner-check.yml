@@ -23,9 +23,10 @@ jobs:
 
       - name: Compile edn (dry run)
         run: |
-          # goku merges into an existing karabiner.json profile, so give it a
-          # minimal one to merge into on the runner.
+          # goku reads ~/.config/karabiner.edn and merges into an existing
+          # karabiner.json profile, so stage both at their default paths.
           mkdir -p ~/.config/karabiner
+          cp "${GITHUB_WORKSPACE}/Karabiner/karabiner.edn" ~/.config/karabiner.edn
           echo '{"profiles":[{"name":"Default","complex_modifications":{"rules":[]}}]}' \
             > ~/.config/karabiner/karabiner.json
-          GOKU_EDN_FILE="${GITHUB_WORKSPACE}/Karabiner/karabiner.edn" goku --dry-run
+          goku --dry-run
