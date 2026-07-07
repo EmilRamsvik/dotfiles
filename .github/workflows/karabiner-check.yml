@@ -28,4 +28,7 @@ jobs:
           mkdir -p ~/.config/karabiner
           echo '{"profiles":[{"name":"Default","complex_modifications":{"rules":[]}}]}' \
             > ~/.config/karabiner/karabiner.json
-          GOKU_EDN_FILE="${GITHUB_WORKSPACE}/Karabiner/karabiner.edn" goku --dry-run
+          # goku reads ~/.config/karabiner.edn by default (the env var it honors
+          # is GOKU_EDN_CONFIG_FILE, not GOKU_EDN_FILE), so put the file there.
+          cp "${GITHUB_WORKSPACE}/Karabiner/karabiner.edn" ~/.config/karabiner.edn
+          goku --dry-run
