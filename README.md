@@ -82,12 +82,15 @@ Defined in `Karabiner/karabiner.edn`, compiled with [Goku](https://github.com/yq
 | Layer | Trigger | Purpose |
 |---|---|---|
 | Caps layer | hold Caps Lock (tap = Esc) | vim-style navigation, selection, editing; `0`/`e` = line start/end, `g`/`⇧g` = document top/bottom, `t`/`⇧t` = next/prev tab, `u`/`r` = undo/redo |
-| Tab layer | hold Tab (tap = Tab) | symbols (`h l j k n m` = `[ ] { } ( )`) and Keyboard Maestro macros |
+| Tab layer | hold Tab (tap = Tab) | symbols (`h l j k n m` = `[ ] { } ( )`), code digraphs (`y u p` = `->` `=>` `!=`) and Keyboard Maestro macros |
 | `w`-layer | hold `w` + key | Rectangle window management (`h/l/j/k` halves, `m` maximize, `u/i/o` thirds, `y/p` two-thirds, `c` center) |
 | `q`-layer | hold `q` + key | app launcher via `open -a` |
+| `f`-layer | hold `f` + key | right-hand numpad (`u i o`/`j k l`/`m , .` = 7-9/4-6/1-3, `n` = 0, `h` = decimal comma) |
+| `.`-layer | hold `.` + key | dev symbols awkward on the Norwegian layout (`j k l` = `/ \ \|`, `u i` = `< >`, `h o p` = `! = ?`, `m` = `$`, `y n` = `` ` `` `~`) |
+| `x`-layer | hold `x` + key | system: volume (`j/k/m`), brightness (`h/l`), screenshots (`o/p/i`), lock screen (`u`), dark-mode toggle (`d`) |
 | Hyper | hold right ⌘ (tap = right ⌘) | ⌘⌃⌥⇧ — private hotkey namespace for Hammerspoon/Keyboard Maestro |
 
-Note: `q`- and `w`-layers are simultaneous-key layers ("simlayers"). If holding-a-letter ever misfires while typing fast, add a lower `:simlayer-threshold` (milliseconds) at the top level of `karabiner.edn`.
+Note: `q`-, `w`-, `f`-, `.`- and `x`-layers are simultaneous-key layers ("simlayers"). If holding-a-letter ever misfires while typing fast, lower `:simlayer-threshold` (milliseconds) at the top level of `karabiner.edn`.
 
 ## Automation under version control
 

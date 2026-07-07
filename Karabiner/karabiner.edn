@@ -6,6 +6,10 @@
              :app "open -a \"%s\""
              }
 
+  ; max ms between trigger key and second key for a simlayer to fire.
+  ; 250 is goku's default; lower it (e.g. 200) if layers misfire while typing fast.
+  :simlayer-threshold 250
+
   :layers {
            :caps-mode {:key :caps_lock :alone {:key :escape}} ; hold caps = text layer, tap caps = escape
            :tab-mode {:key :tab :alone {:key :tab}} ; hold tab = symbol layer, tap tab = tab
@@ -13,6 +17,9 @@
   :simlayers {
               :q-mode {:key :q} ; hold q + key = open apps
               :w-mode {:key :w} ; hold w + key = window management (Rectangle)
+              :f-mode {:key :f} ; hold f + key = right-hand numpad
+              :period-mode {:key :period} ; hold . + key = dev symbols (Norwegian layout)
+              :x-mode {:key :x} ; hold x + key = system: volume, brightness, screenshots, lock
               }
   :applications {
                  :spotify ["com.spotify.client"]
@@ -102,6 +109,12 @@
             ; KEYBOARD MAESTRO MACROS (via their KM hotkeys)
             [:i :!OSCr] ; add clipboard to inbox note
             [:o :!OSCt] ; run tomatobar
+
+            ; CODE DIGRAPHS (typed as two-key sequences; Norwegian layout:
+            ; - is the :slash key, > is shift+<>-key — see dot-layer note on :non_us_backslash)
+            [:y [:slash :!Snon_us_backslash]] ; ->
+            [:u [:!S0 :!Snon_us_backslash]] ; =>
+            [:p [:!S1 :!S0]] ; !=
             ]}
    {:des "wkey (windows)"
     :rules [; hold w + key = Rectangle window management
@@ -131,6 +144,59 @@
             [:m [:app "Messages"]]
             [:e [:app "Claude"]]
             [:w [:app "Slack"]]
+            ]}
+   {:des "fkey (numpad)"
+    :rules [; hold f + right hand = numpad, laid out like the real thing
+            ; 7 8 9   -> u i o
+            ; 4 5 6   -> j k l
+            ; 1 2 3   -> m , .
+            ; 0 and decimal comma on n and h
+            :f-mode
+            [:u :7]
+            [:i :8]
+            [:o :9]
+            [:j :4]
+            [:k :5]
+            [:l :6]
+            [:m :1]
+            [:comma :2]
+            [:period :3]
+            [:n :0]
+            [:h :comma] ; decimal separator
+            ]}
+   {:des "dot key (dev symbols)"
+    :rules [; hold . + key = programming symbols that are awkward on the Norwegian
+            ; layout; complements the tab layer's bracket cluster.
+            ; NOTE: on some Apple ISO keyboards the <> key reports as
+            ; :grave_accent_and_tilde instead of :non_us_backslash — check
+            ; Karabiner EventViewer and swap if < and > come out wrong.
+            :period-mode
+            [:j :!S7] ; / (shift+7)
+            [:k :!SO7] ; \ (shift+option+7)
+            [:l :!O7] ; | (option+7)
+            [:h :!S1] ; !
+            [:u :non_us_backslash] ; <
+            [:i :!Snon_us_backslash] ; >
+            [:o :!S0] ; =
+            [:p :!Shyphen] ; ? (shift on the +/? key)
+            [:m :!S4] ; $ (Apple Norwegian: shift+4)
+            [:y [:!Sequal_sign :spacebar]] ; ` (dead key shift+´, then space)
+            [:n [:!Oclose_bracket :spacebar]] ; ~ (dead key option+¨, then space)
+            ]}
+   {:des "xkey (system)"
+    :rules [; hold x + key = system controls: volume, brightness, screenshots,
+            ; lock screen, dark mode
+            :x-mode
+            [:j :volume_decrement]
+            [:k :volume_increment]
+            [:m :mute]
+            [:h :display_brightness_decrement]
+            [:l :display_brightness_increment]
+            [:u :!TCq] ; lock screen (ctrl+cmd+q)
+            [:p :!CST4] ; screenshot area -> clipboard (cmd+ctrl+shift+4)
+            [:o :!CS4] ; screenshot area -> file (cmd+shift+4)
+            [:i :!CS5] ; screenshot/recording options (cmd+shift+5)
+            [:d "osascript -e 'tell application \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"] ; toggle dark mode
             ]}
    {:des "Spotify controls"
     :rules [; Media controls for Spotify
