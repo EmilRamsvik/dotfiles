@@ -3,84 +3,82 @@
              :alfred "osascript -e 'tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
              :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
              :open "open \"%s\""
+             :app "open -a \"%s\""
              }
 
   :layers {
-:caps-mode {:key :caps_lock :alone {:key :escape}}
-:caps-command-mode {:key :caps_lock :alone {:key :left_command}}
-  :tab-mode {:key :tab :alone {:key :tab}}
-   }
-   :simlayers {
-  :q-mode {:key :q} ; mode for opening files and programs
-   }
-:applications {
-                :spotify ["com.spotify.client"]
-                :chrome ["com.google.Chrome"]
-                :vscode ["com.microsoft.VSCode"]
-                :cursor ["com.cursor.app"]
-                }
+           :caps-mode {:key :caps_lock :alone {:key :escape}} ; hold caps = text layer, tap caps = escape
+           :tab-mode {:key :tab :alone {:key :tab}} ; hold tab = symbol layer, tap tab = tab
+           }
+  :simlayers {
+              :q-mode {:key :q} ; hold q + key = open apps
+              :w-mode {:key :w} ; hold w + key = window management (Rectangle)
+              }
+  :applications {
+                 :spotify ["com.spotify.client"]
+                 :chrome ["com.google.Chrome"]
+                 :vscode ["com.microsoft.VSCode"]
+                 :cursor ["com.cursor.app"]
+                 }
 
-  :main 
+  :main
 
   [{:des "main profile"
-    :rules [; some comment
-            ;; [:left_command  :left_command nil  {:alone :!Cd}]
-                ;;   [{:key :spacebar :modi :left_shift} [:spacebar :0 :spacebar]]
-                  ; remap
+    :rules [;; [:left_command  :left_command nil  {:alone :!Cd}]
+            ;; [{:key :spacebar :modi :left_shift} [:spacebar :0 :spacebar]]
             ]}
    {:des "capslock layer"
-    :rules [; capslock layer is for navigation and copy/paste and insertions
+    :rules [; hold caps = navigation, selection, and editing; tap caps = escape
             :caps-mode
-            ; 4-TIER NAVIGATION SYSTEM
-            ; Tier 1: Character/Line movement (h/j/k/l)
+
+            ; SELECTION (shift + key). These must come before the ##-rules that
+            ; share the same keys, otherwise the ##-rules (optional any modifier)
+            ; match first and shadow them.
+            [:!Sh :!Sleft_arrow] ; select left
+            [:!Sj :!Sdown_arrow] ; select down
+            [:!Sk :!Sup_arrow] ; select up
+            [:!Sl :!Sright_arrow] ; select right
+            [:!Sw :!OSright_arrow] ; select word forward
+            [:!Sb :!OSleft_arrow] ; select word backward
+            [:!Sv [:!CSleft_arrow :!CSright_arrow]] ; select entire line
+            [:!Sa :!CSup_arrow] ; select to top of document
+            [:!Ss :!CSdown_arrow] ; select to end of document
+            [:!Sg :!Cdown_arrow] ; bottom of document (vim G)
+            [:!Sd [:!CSleft_arrow :delete_or_backspace]] ; delete to start of line
+            [:!St :!TStab] ; previous tab (ctrl+shift+tab)
+
+            ; NAVIGATION
+            ; Tier 1: character/line movement (## = extra modifiers pass through)
+            [:##h :##left_arrow]
             [:##j :##down_arrow]
-            [:##h :##left_arrow] ; ## means you can press things together
             [:##k :##up_arrow]
             [:##l :##right_arrow]
-
-            ; Tier 3: Page jumping (a/s)
+            ; Tier 2: word movement
+            [:##b :!Oleft_arrow] ; back one word
+            [:##w :!Oright_arrow] ; forward one word
+            ; Tier 3: page jumping
             [:##a :page_up]
             [:##s :page_down]
+            ; Tier 4: line and document jumps
+            [:##e :!Cright_arrow] ; end of line
+            [:##0 :!Cleft_arrow] ; start of line (vim 0)
+            [:g :!Cup_arrow] ; top of document (vim gg)
+            [:t :!Ttab] ; next tab (ctrl+tab)
 
-            ; VISUAL SELECTION MODE (shift + vim keys for selection)
-            [:!Sh :!Sleft_arrow] ; caps + shift + h = select left
-            [:!Sj :!Sdown_arrow] ; caps + shift + j = select down
-            [:!Sk :!Sup_arrow] ; caps + shift + k = select up
-            [:!Sl :!Sright_arrow] ; caps + shift + l = select right
-
-            ; WORD/LINE SELECTION
-            [:!Sw :!OSright_arrow] ; caps + shift + w = select word forward
-            [:!Sb :!OSleft_arrow] ; caps + shift + b = select word backward
-            [:!Sv [:!CSleft_arrow :!CSright_arrow]] ; caps + shift + v = select entire line
-
-            ; Tier 4: Document-level selection (shift + a/s)
-            [:!Sa :!CSup_arrow] ; caps + shift + a = select to beginning of document
-            [:!Ss :!CSdown_arrow] ; caps + shift + s = select to end of document
-
+            ; EDITING
             [:##spacebar :return_or_enter] ; space is enter
-            [:##d [:!Cright_arrow :!Cdelete_or_backspace :delete_or_backspace]] ; go to end, delete line, then delete again
-  
-
-            ; Copy/paste/delete/undo commands
-            [:##u :!Cz] ; undo
-            [:##r :!Cz] ; undo
-            [:##y :!Cc] ; copy
-
-            [:##o :!Cv] ; paste
-            [:##p :!CSv] ; paste from clipboard history
+            [:##d [:!Cright_arrow :!Cdelete_or_backspace :delete_or_backspace]] ; delete whole line
+            [:##f [:!CSright_arrow :delete_or_backspace]] ; delete to end of line
             [:##x :delete_or_backspace] ; delete character
             [:##i :!Odelete_or_backspace] ; delete word
+            [:##u :!Cz] ; undo
+            [:##r :!CSz] ; redo
+            [:##y :!Cc] ; copy
+            [:##o :!Cv] ; paste
+            [:##p :!CSv] ; paste from clipboard history
 
-            ; Tier 2: Word movement (b/w)
-            [:##b :!Oleft_arrow] ;  B to move back one word
-            [:##w :!Oright_arrow] ;  W to move forward one word
-
-            ; Line start/end movement
-            [:##e :!Cright_arrow] ;  E to move forward to end of line
-            [:##q :!Cleft_arrow] ;  Q to move back to start of line
-            ; instert commands
-            ; NUMBER KEYS ARE SHIFT + NUMBER
-            [:1 :!Cleft_arrow]
+            ; NUMBERS 1-9 ARE SHIFT + NUMBER (0 is start of line, see above)
+            [:1 :!S1]
             [:2 :!S2]
             [:3 :!S3]
             [:4 :!S4]
@@ -89,51 +87,50 @@
             [:7 :!S7]
             [:8 :!S8]
             [:9 :!S9]
-            [:0 :!Cright_arrow]
-
-
-            [:n :!O8] ; [
-            [:period :!O9] ; ]
-            [:m :!SO8] ; {
-            [:comma :!SO9] ; }
-            [:semicolon :!S8] ; (
-           
             ]}
-  {:des "tab layer"
-    :rules [; for tabbing between windows and running commands
+   {:des "tab layer"
+    :rules [; hold tab = symbols and Keyboard Maestro macros; tap tab = tab
             :tab-mode
-            ; RECTANGLE APP COMMANDS
-            [:m :!OTreturn_or_enter] ; Rectangle maximize
-            [:comma :!OTleft_arrow] ;left half
-            [:period :!OTright_arrow] ; right half
-            [:q :!OTd] ; Left third
-            [:w :!OTf] ; Middle third
-            [:e :!OTg] ; Right third
-            [:r :!OTe] ; Right third
-            [:t :!OTt] ; Right third
-
-            [:i :!OSCr] ; add clipboard to inbox note
-            [:o :!OSCt] ; run tomatobar.
-            
+            ; SYMBOL CLUSTER (Norwegian layout: ⌥8=[ ⌥9=] ⇧⌥8={ ⇧⌥9=} ⇧8=( ⇧9=))
             [:h :!O8] ; [
-            [:l :!O9] ; [
+            [:l :!O9] ; ]
             [:j :!SO8] ; {
             [:k :!SO9] ; }
             [:n :!S8] ; (
-            [:m :!S9] ; (
+            [:m :!S9] ; )
+
+            ; KEYBOARD MAESTRO MACROS (via their KM hotkeys)
+            [:i :!OSCr] ; add clipboard to inbox note
+            [:o :!OSCt] ; run tomatobar
+            ]}
+   {:des "wkey (windows)"
+    :rules [; hold w + key = Rectangle window management
+            :w-mode
+            [:m :!OTreturn_or_enter] ; maximize
+            [:h :!OTleft_arrow] ; left half
+            [:l :!OTright_arrow] ; right half
+            [:j :!OTdown_arrow] ; bottom half
+            [:k :!OTup_arrow] ; top half
+            [:u :!OTd] ; first third
+            [:i :!OTf] ; center third
+            [:o :!OTg] ; last third
+            [:y :!OTe] ; first two thirds
+            [:p :!OTt] ; last two thirds
+            [:c :!OTc] ; center window
             ]}
    {:des "qkey (apps)"
-         :rules [:q-mode
-              [:k [:km "open: Helium"]]
-              [:j [:km "open: Cursor"]]
-              [:l [:km "open: Ghostty"]]
-              [:f [:km "open: Finder"]]
-              [:s [:km "open: Spotify"]]
-              [:n [:km "open: Obsidian"]]
-              [:r [:km "open: ChatGPT"]]
-              [:m [:km "open: Message"]]
-              [:e [:km "open: Claude"]]
-              [:w [:km "open: Slack"]]
+    :rules [; hold q + key = open app directly (no Keyboard Maestro dependency)
+            :q-mode
+            [:k [:app "Helium"]]
+            [:j [:app "Cursor"]]
+            [:l [:app "Ghostty"]]
+            [:f [:app "Finder"]]
+            [:s [:app "Spotify"]]
+            [:n [:app "Obsidian"]]
+            [:r [:app "ChatGPT"]]
+            [:m [:app "Messages"]]
+            [:e [:app "Claude"]]
+            [:w [:app "Slack"]]
             ]}
    {:des "Spotify controls"
     :rules [; Media controls for Spotify
@@ -149,23 +146,29 @@
             [:!Svolume_increment "osascript -e 'tell application \"Spotify\" to set sound volume to (sound volume + 10)'"] ; shift + vol up
             [:!Svolume_decrement "osascript -e 'tell application \"Spotify\" to set sound volume to (sound volume - 10)'"] ; shift + vol down
             ]}
-    {:des "right command key" ; right command key for app specific commands
-:rules [
-      [:right_command :!Cl :spotify]
-      [:right_command :!Cl :chrome]
-      [:right_command :!Cp :vscode]
-
-      ]
-}
+   {:des "right command key" ; right command key for app specific commands
+    :rules [
+            [:right_command :!Cl :spotify]
+            [:right_command :!Cl :chrome]
+            [:right_command :!Cp :vscode]
+            [:right_command :!Cp :cursor]
+            ]}
+   {:des "hyper key"
+    :rules [; hold right command = hyper (⌘⌃⌥⇧), tap = right command.
+            ; The app-specific rules above win in Spotify/Chrome/VSCode/Cursor.
+            ; Hyper is a conflict-free hotkey namespace for Hammerspoon and
+            ; Keyboard Maestro bindings (see hammerspoon/init.lua).
+            [:right_command :!QWEright_shift nil {:alone :right_command}]
+            ]}
    {:des "Quit application by command + Q only when pressing twice"
-         :rules [[:!Cq
-                  [:!Cq ["command-q" 0]]
-                  ["command-q" 1]]
-                 [:!Cq
-                  ["command-q" 1]
-                  nil
-                  {:delayed {:invoked ["command-q" 0] :canceled ["command-q" 0]}}]]}
-  ]
+    :rules [[:!Cq
+             [:!Cq ["command-q" 0]]
+             ["command-q" 1]]
+            [:!Cq
+             ["command-q" 1]
+             nil
+             {:delayed {:invoked ["command-q" 0] :canceled ["command-q" 0]}}]]}
+   ]
   }
 ;; :key | means key
 ;; !  | means mandatory

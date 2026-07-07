@@ -40,6 +40,7 @@ cask "Alfred"
 cask "docker"
 cask "helium-browser"
 cask "keyboard-maestro"
+cask "hammerspoon"
 cask "ghostty"
 
 

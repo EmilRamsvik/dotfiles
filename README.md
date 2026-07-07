@@ -47,9 +47,10 @@ The setup script will:
   - `.zshrc` - Zsh configuration
   - `.gitconfig` - Git configuration
   - `karabiner.edn` - Karabiner-Elements keyboard mappings
+  - `hammerspoon/` - Hammerspoon configuration (`~/.hammerspoon`)
   - Zed editor settings and keymaps
 - ✅ Create project folder structure in `~/Documents`
-- ✅ Configure Karabiner-Elements using Goku
+- ✅ Configure Karabiner-Elements using Goku (and start `goku` in watch mode via `brew services`, so edits to `karabiner.edn` apply on save)
 
 ## Directory Structure
 
@@ -68,8 +69,31 @@ After installation, the following directories will be created:
 - **`.zshrc`** - Zsh shell configuration
 - **`gitconfig`** - Git global configuration
 - **`Brewfile`** - Homebrew packages list
-- **`Karabiner/karabiner.edn`** - Keyboard mappings
+- **`Karabiner/karabiner.edn`** - Keyboard mappings (source of truth; compiled by Goku)
+- **`hammerspoon/`** - Hammerspoon (Lua) automation config
+- **`keyboard-maestro/`** - Exported Keyboard Maestro macros (see `scripts/export-km-macros.sh`)
+- **`scripts/`** - Helper scripts and plain-text AppleScript sources
 - **`zed/`** - Zed editor configuration
+
+## Keyboard layers (Karabiner)
+
+Defined in `Karabiner/karabiner.edn`, compiled with [Goku](https://github.com/yqrashawn/GokuRakuJoudo). A `karabiner.edn` change is applied automatically when the goku watch service is running (`brew services start goku`), and validated in CI by `.github/workflows/karabiner-check.yml`.
+
+| Layer | Trigger | Purpose |
+|---|---|---|
+| Caps layer | hold Caps Lock (tap = Esc) | vim-style navigation, selection, editing; `0`/`e` = line start/end, `g`/`⇧g` = document top/bottom, `t`/`⇧t` = next/prev tab, `u`/`r` = undo/redo |
+| Tab layer | hold Tab (tap = Tab) | symbols (`h l j k n m` = `[ ] { } ( )`) and Keyboard Maestro macros |
+| `w`-layer | hold `w` + key | Rectangle window management (`h/l/j/k` halves, `m` maximize, `u/i/o` thirds, `y/p` two-thirds, `c` center) |
+| `q`-layer | hold `q` + key | app launcher via `open -a` |
+| Hyper | hold right ⌘ (tap = right ⌘) | ⌘⌃⌥⇧ — private hotkey namespace for Hammerspoon/Keyboard Maestro |
+
+Note: `q`- and `w`-layers are simultaneous-key layers ("simlayers"). If holding-a-letter ever misfires while typing fast, add a lower `:simlayer-threshold` (milliseconds) at the top level of `karabiner.edn`.
+
+## Automation under version control
+
+- **Hammerspoon**: config lives in `hammerspoon/init.lua`, symlinked to `~/.hammerspoon` — it's Lua code, so it's fully version-controlled. Hyper+R reloads; the config also reloads itself when a `.lua` file changes.
+- **AppleScript**: keep sources as plain-text `.applescript` files in `scripts/` (not binary `.scpt`). Run and capture output with `osascript scripts/foo.applescript > result.txt`.
+- **Keyboard Maestro**: run `scripts/export-km-macros.sh` to export every macro group as a diffable `.kmmacros` XML file into `keyboard-maestro/` and auto-commit changes. Trigger it from a KM macro on a timer or a `launchd`/cron job to keep it current.
 
 ## Troubleshooting
 
@@ -121,7 +145,8 @@ After installation, the following directories will be created:
 1. Ensure Karabiner-Elements is installed: `brew list karabiner-elements`
 2. Grant necessary permissions in System Settings → Privacy & Security
 3. Run Goku manually: `goku`
-4. Check Karabiner-Elements app for any error messages
+4. Check the goku watch service is running: `brew services list | grep goku`
+5. Check Karabiner-Elements app for any error messages
 
 ### Permission denied errors
 

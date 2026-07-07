@@ -1,0 +1,31 @@
+name: Check karabiner.edn
+
+on:
+  pull_request:
+    paths:
+      - "Karabiner/**"
+      - ".github/workflows/karabiner-check.yml"
+  push:
+    branches: [master]
+    paths:
+      - "Karabiner/**"
+      - ".github/workflows/karabiner-check.yml"
+
+jobs:
+  goku-dry-run:
+    name: Compile karabiner.edn with goku
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install goku
+        run: brew install yqrashawn/goku/goku
+
+      - name: Compile edn (dry run)
+        run: |
+          # goku merges into an existing karabiner.json profile, so give it a
+          # minimal one to merge into on the runner.
+          mkdir -p ~/.config/karabiner
+          echo '{"profiles":[{"name":"Default","complex_modifications":{"rules":[]}}]}' \
+            > ~/.config/karabiner/karabiner.json
+          GOKU_EDN_FILE="${GITHUB_WORKSPACE}/Karabiner/karabiner.edn" goku --dry-run

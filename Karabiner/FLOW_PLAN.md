@@ -4,8 +4,23 @@ A reviewable plan for improving the keyboard flow defined in `Karabiner/karabine
 (compiled with [Goku](https://github.com/yqrashawn/GokuRakuJoudo)), plus a strategy for
 getting Keyboard Maestro / Hammerspoon / AppleScript automations under version control.
 
-Nothing in this document changes behavior yet — it is a plan to review. Each phase can
-become its own small PR.
+> **Status: implemented** (all phases, in this branch). Decisions taken where the plan
+> left a choice:
+> - **#4** line start/end kept on `0`/`e` (`0` = start, vim-style — it previously meant
+>   *end*); `q` freed, `1` now types `!` like the other numbers.
+> - **#5** the symbol cluster lives on the **tab layer** (`h l j k n m` = `[ ] { } ( )`);
+>   removed from caps. This also adds the previously missing `)`.
+> - **#9** Hyper = hold right ⌘ (tap = right ⌘); app-specific right-⌘ rules still win in
+>   Spotify/Chrome/VSCode/Cursor.
+> - **#10** window management moved to a `w` simlayer; the duplicate `m` binding on the
+>   tab layer (maximize vs `)`) is resolved.
+> - Extra fix found during implementation: the ⇧-selection rules (`!Sa`, `!Ss`, …) were
+>   listed *after* the `##`-rules on the same keys, so caps+⇧+a/s never fired (the
+>   optional-any rules matched first). Selection rules now come first.
+> - The version-control section is implemented as `hammerspoon/init.lua`,
+>   `scripts/export-km-macros.{sh,applescript}`, and `keyboard-maestro/`.
+
+Each phase was designed so it can be reviewed (and reverted) independently.
 
 ---
 
