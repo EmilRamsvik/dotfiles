@@ -147,16 +147,16 @@ execute_vscode() {
 }
 alias v="execute_vscode"
 
-# Open Cursor in current directory or specified path
+# Open Zed in current directory or specified path
 # Usage: c [path]
-execute_cursor() {
+execute_zed() {
   if [ "$#" -eq 0 ]; then
-    cursor .
+    zed .
   else
-    cursor "$1"
+    zed "$1"
   fi
 }
-alias c="execute_cursor"
+alias c="execute_zed"
 
 # ------------------------------------------------------------------------------
 # Git Helper Functions

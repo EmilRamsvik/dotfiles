@@ -11,7 +11,7 @@ getting Keyboard Maestro / Hammerspoon / AppleScript automations under version c
 > - **#5** the symbol cluster lives on the **tab layer** (`h l j k n m` = `[ ] { } ( )`);
 >   removed from caps. This also adds the previously missing `)`.
 > - **#9** Hyper = hold right ⌘ (tap = right ⌘); app-specific right-⌘ rules still win in
->   Spotify/Chrome/VSCode/Cursor.
+>   Spotify/Chrome/VSCode.
 > - **#10** window management moved to a `w` simlayer; the duplicate `m` binding on the
 >   tab layer (maximize vs `)`) is resolved.
 > - Extra fix found during implementation: the ⇧-selection rules (`!Sa`, `!Ss`, …) were
@@ -87,7 +87,7 @@ Low-risk fixes that make the config trustworthy before adding anything new.
    The `q-mode` launcher calls KM macros that just open apps. The edn already defines an
    `:open` template — use it and the KM dependency for launching disappears:
    ```clojure
-   [:j [:open "-a Cursor"]]      ; instead of [:km "open: Cursor"]
+   [:j [:open "-a Zed"]]         ; instead of [:km "open: ..."]
    ```
    (Template becomes `:open "open %s"` so `-a` works, or add an `:app "open -a '%s'"`
    template.) Keep `:km` only for macros that do real KM work (clipboard-to-inbox,
@@ -116,8 +116,7 @@ Low-risk fixes that make the config trustworthy before adding anything new.
     - `[:!Sd ...]` — delete without the triple-chord currently on `d`
 
 12. **App-specific layers** — extend the existing `right_command` idea: same physical key,
-    per-app meaning (`:spotify`/`:chrome`/`:vscode`/`:cursor` conditions already declared;
-    `:cursor` is currently declared but unused).
+    per-app meaning (`:spotify`/`:chrome`/`:vscode` conditions already declared).
 
 ## Phase 4 — Tooling & guardrails
 

@@ -101,7 +101,7 @@ Organized categories of aliases:
 
 #### Editors
 - `v [path]` - Open VS Code
-- `c [path]` - Open Cursor
+- `c [path]` - Open Zed
 
 ### `environment.zsh` (Environment Variables)
 
