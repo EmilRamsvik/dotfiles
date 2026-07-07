@@ -21,7 +21,7 @@ jobs:
       - name: Install goku
         run: brew install yqrashawn/goku/goku
 
-      - name: Compile edn (dry run)
+      - name: Compile edn
         run: |
           # goku merges into an existing karabiner.json profile, so give it a
           # minimal one to merge into on the runner.
@@ -31,4 +31,9 @@ jobs:
           # goku reads ~/.config/karabiner.edn by default (the env var it honors
           # is GOKU_EDN_CONFIG_FILE, not GOKU_EDN_FILE), so put the file there.
           cp "${GITHUB_WORKSPACE}/Karabiner/karabiner.edn" ~/.config/karabiner.edn
-          goku --dry-run
+          # Not --dry-run: goku's dry-run always exits 1 after printing the
+          # config, so it can't be used as a pass/fail check. A real run exits
+          # 0 on success and writes the compiled rules into karabiner.json.
+          goku
+          jq -e '.profiles[0].complex_modifications.rules | length > 0' \
+            ~/.config/karabiner/karabiner.json
