@@ -26,6 +26,13 @@ alias dt="cd ~/Desktop"
 alias dot="cd ~/dotfiles"
 alias h="cd ~/"
 
+# Quick-jump to frequent directories — keep autojump's `j` muscle memory,
+# backed by zoxide (`ji` opens the interactive fzf picker)
+if command -v zoxide &> /dev/null; then
+  alias j="z"
+  alias ji="zi"
+fi
+
 # ------------------------------------------------------------------------------
 # Git Shortcuts
 # ------------------------------------------------------------------------------
