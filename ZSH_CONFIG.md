@@ -23,17 +23,21 @@ dotfiles/
 ### `.zshrc` (Main Configuration)
 
 The main entry point that:
-- Initializes Oh-My-Zsh
-- Sources all modular configuration files in the correct order
-- Loads Zinit plugin manager
+- Sources environment and the plugins array, **then** initializes Oh-My-Zsh
+  (OMZ reads `$plugins` at load time, so the order is critical)
+- Sources the remaining modular configuration files
+- Initializes the Starship prompt (falls back to `robbyrussell` if starship
+  isn't installed)
 
 **Loading Order:**
 1. `environment.zsh` - Sets up PATH and environment variables
-2. `settings.zsh` - Configures shell behavior
-3. `plugins.zsh` - Loads Oh-My-Zsh plugins
-4. `functions.zsh` - Defines custom functions
-5. `alias.zsh` - Sets up aliases
-6. `local.zsh` - Machine-specific overrides
+2. `plugins.zsh` - Defines the plugins array and plugin settings
+3. Oh-My-Zsh itself (runs compinit, loads plugins)
+4. `settings.zsh` - Configures shell behavior
+5. `functions.zsh` - Defines custom functions
+6. `alias.zsh` - Sets up aliases
+7. `local.zsh` - Machine-specific overrides
+8. Starship prompt init
 
 ### `alias.zsh` (Aliases)
 
@@ -128,14 +132,19 @@ Configures:
 
 Loads Oh-My-Zsh plugins:
 - `git` - Git integration
-- `docker` - Docker completion
+- `docker`, `docker-compose` - Docker completion
 - `python`, `pip` - Python tools
-- `node`, `npm` - Node.js tools
+- `nvm` (lazy), `node`, `npm` - Node.js tools
 - `terraform` - Terraform completion
+- `fzf` - Ctrl+R fuzzy history, Ctrl+T file picker, Alt+C fuzzy cd
+- `zoxide` - Smart directory navigation (`z <dir>`)
+- `fzf-tab` - Tab completion through a fuzzy picker
+- `zsh-completions` - Extra completion definitions
 - `zsh-autosuggestions` - Command suggestions
-- `thefuck` - Command correction
-- `autojump` - Smart directory navigation
-- `zsh-syntax-highlighting` - Syntax highlighting
+- `zsh-syntax-highlighting` - Syntax highlighting (brand-palette colors)
+
+See `ZSH_REVIEW.md` for the reasoning behind this stack and the terminal
+style (Ghostty theme + Starship prompt).
 
 ### `local.zsh` (Local Overrides)
 
@@ -305,14 +314,16 @@ zprof
    ls ~/.oh-my-zsh/plugins/
    ```
 
-2. For third-party plugins (zsh-autosuggestions, zsh-syntax-highlighting):
+2. For custom plugins (zsh-autosuggestions, zsh-syntax-highlighting,
+   zsh-completions, fzf-tab):
    ```bash
-   brew list | grep zsh
+   ls ~/.oh-my-zsh/custom/plugins/
    ```
 
-3. Reinstall if needed:
+3. Reinstall if needed by re-running the plugin section of `setup.sh`, e.g.:
    ```bash
-   brew reinstall zsh-autosuggestions zsh-syntax-highlighting
+   git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions \
+     ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
    ```
 
 ## Performance Tips
@@ -323,7 +334,7 @@ zprof
    time zsh -i -c exit
    ```
 3. **Disable unused plugins** in `plugins.zsh`
-4. **Use Zinit** for faster plugin loading (already configured)
+4. **Keep compinit single** — Oh-My-Zsh runs it; never call it again elsewhere
 
 ## Key Bindings Reference
 
@@ -363,5 +374,6 @@ brew update && brew upgrade
 
 - [Oh-My-Zsh Documentation](https://github.com/ohmyzsh/ohmyzsh)
 - [Zsh Manual](http://zsh.sourceforge.net/Doc/)
-- [Zinit Documentation](https://github.com/zdharma-continuum/zinit)
+- [Starship Documentation](https://starship.rs/config/)
+- [Ghostty Documentation](https://ghostty.org/docs)
 - [Ollama Documentation](https://ollama.ai/docs)

@@ -78,9 +78,28 @@ create_symlink "${DOTFILES_DIR}/zed/settings.json" "${HOME}/.config/zed/settings
 create_symlink "${DOTFILES_DIR}/zed/keymap.json" "${HOME}/.config/zed/keymap.json" "true"
 echo "🔨 Hammerspoon"
 create_symlink "${DOTFILES_DIR}/hammerspoon" "${HOME}/.hammerspoon" "true"
+echo "👻 Ghostty"
+create_symlink "${DOTFILES_DIR}/ghostty/config" "${HOME}/.config/ghostty/config" "true"
+create_symlink "${DOTFILES_DIR}/ghostty/themes" "${HOME}/.config/ghostty/themes" "true"
+echo "🚀 Starship prompt"
+create_symlink "${DOTFILES_DIR}/starship.toml" "${HOME}/.config/starship.toml" "true"
 
-# Install the plugins
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+# Install Oh-My-Zsh custom plugins (referenced in zsh/plugins.zsh)
+ZSH_CUSTOM="${ZSH_CUSTOM:-${HOME}/.oh-my-zsh/custom}"
+clone_omz_plugin() {
+    local repo=$1
+    local name=$(basename "$repo")
+    if [ ! -d "${ZSH_CUSTOM}/plugins/${name}" ]; then
+        echo "Installing zsh plugin: ${name}"
+        git clone --depth=1 "https://github.com/${repo}" "${ZSH_CUSTOM}/plugins/${name}"
+    else
+        echo "zsh plugin already installed: ${name}"
+    fi
+}
+clone_omz_plugin "zsh-users/zsh-autosuggestions"
+clone_omz_plugin "zsh-users/zsh-syntax-highlighting"
+clone_omz_plugin "zsh-users/zsh-completions"
+clone_omz_plugin "Aloxaf/fzf-tab"
 
 echo "Creating a folder structure"
 "${DOTFILES_DIR}/create_folders.sh"
