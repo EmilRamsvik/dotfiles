@@ -122,7 +122,7 @@ nvm + single compinit the startup cost is fine.
 cd ~/dotfiles && git pull
 brew bundle                      # installs starship, zoxide, fzf, eza, bat, fd, rg, nerd font
 ./setup.sh                       # or just run the clone_omz_plugin/symlink parts
-zoxide import --from=autojump    # keep your autojump directory rankings
+zoxide import autojump --merge   # keep your autojump directory rankings
 brew uninstall autojump thefuck  # optional cleanup
 exec zsh                         # restart the shell; cmd+shift+, in Ghostty to reload theme
 ```

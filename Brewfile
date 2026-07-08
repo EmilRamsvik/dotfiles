@@ -44,7 +44,7 @@ cask "rectangle"
 cask "shottr"
 cask "slack"
 cask "Alfred"
-cask "docker"
+cask "docker-desktop"  # homebrew renamed the old "docker" cask token
 cask "helium-browser"
 cask "keyboard-maestro"
 cask "hammerspoon"
