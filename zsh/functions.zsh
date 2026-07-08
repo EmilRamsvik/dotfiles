@@ -372,5 +372,3 @@ EOF
   echo "✅ Project structure created!"
   ls -la
 }
-
-echo "✓ Functions loaded"

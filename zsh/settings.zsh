@@ -6,22 +6,13 @@
 # ============================================================================
 
 # ------------------------------------------------------------------------------
-# Case Sensitivity
+# Completion System
 # ------------------------------------------------------------------------------
+# NOTE: compinit is NOT called here — Oh-My-Zsh already runs it once at load
+# time. Calling it again doubles shell startup cost.
 
 # Case-insensitive completion
 CASE_SENSITIVE="false"
-
-# Case-insensitive matching for completion
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-# ------------------------------------------------------------------------------
-# Completion System
-# ------------------------------------------------------------------------------
-
-# Enable completion system
-autoload -Uz compinit
-compinit
 
 # Use menu selection for completion
 zstyle ':completion:*' menu select
@@ -84,9 +75,6 @@ setopt PUSHD_SILENT
 # Extended globbing (advanced pattern matching)
 setopt EXTENDED_GLOB
 
-# Do not error if a glob pattern doesn't match anything
-setopt NULL_GLOB
-
 # Sort numeric filenames numerically
 setopt NUMERIC_GLOB_SORT
 
@@ -110,9 +98,6 @@ setopt NOTIFY
 # Don't hang up background jobs when shell exits
 setopt NO_HUP
 
-# Report the status of background jobs immediately, rather than waiting until just before printing a prompt
-setopt NOTIFY
-
 # ------------------------------------------------------------------------------
 # Input/Output
 # ------------------------------------------------------------------------------
@@ -122,9 +107,6 @@ setopt INTERACTIVE_COMMENTS
 
 # Do not beep on errors
 setopt NO_BEEP
-
-# Enable vi mode (optional - comment out if you prefer emacs mode)
-# bindkey -v
 
 # Keep emacs keybindings (default)
 bindkey -e
@@ -160,5 +142,3 @@ bindkey "^[[1;5D" backward-word  # Ctrl+Left
 
 # Use Ctrl+Backspace to delete word
 bindkey '^H' backward-kill-word
-
-echo "✓ Settings loaded"

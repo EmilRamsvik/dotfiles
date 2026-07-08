@@ -1,0 +1,44 @@
+# ============================================================================
+# Ghostty Configuration
+# ============================================================================
+# Location (symlinked by setup.sh): ~/.config/ghostty/config
+# Theme file lives in ghostty/themes/ and is symlinked to
+# ~/.config/ghostty/themes/
+# Reload config in Ghostty with cmd+shift+, (or restart).
+# ============================================================================
+
+theme = systek-dark
+
+# ------------------------------------------------------------------------------
+# Font
+# ------------------------------------------------------------------------------
+# JetBrains Mono ships with Ghostty as the default. Install a Nerd Font
+# (brew install --cask font-jetbrains-mono-nerd-font) for prompt icons.
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+font-thicken = true
+
+# ------------------------------------------------------------------------------
+# Window feel
+# ------------------------------------------------------------------------------
+window-padding-x = 12
+window-padding-y = 10
+window-padding-balance = true
+macos-titlebar-style = tabs
+background-opacity = 0.97
+background-blur-radius = 20
+
+# ------------------------------------------------------------------------------
+# Cursor
+# ------------------------------------------------------------------------------
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+# ------------------------------------------------------------------------------
+# Behavior
+# ------------------------------------------------------------------------------
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+confirm-close-surface = false
+shell-integration = zsh

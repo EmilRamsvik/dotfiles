@@ -1,0 +1,46 @@
+# ============================================================================
+# Systek Dark — Ghostty theme
+# ============================================================================
+# Built from the brand identity palette:
+#   Grå 10    #1A1A1A  (background)
+#   Off-white #FCF6EE  (foreground)
+#   Oransje   #FF8C45  (cursor, accents, bright red)
+#   Gul       #FFD24C  (yellow)
+#   Blå       #97D2EC  (blue)
+# Red/green/magenta/cyan are derived to harmonize with the warm brand hues,
+# since a full ANSI palette needs all 16 slots.
+# ============================================================================
+
+background = #1A1A1A
+foreground = #FCF6EE
+
+cursor-color = #FF8C45
+cursor-text = #1A1A1A
+
+selection-background = #3A4A54
+selection-foreground = #FCF6EE
+
+# black
+palette = 0=#262626
+palette = 8=#5C574F
+# red (coral, warms toward Oransje; bright red IS the brand orange)
+palette = 1=#E5604C
+palette = 9=#FF8C45
+# green (sage, warm-leaning to sit well next to Gul)
+palette = 2=#A9C47F
+palette = 10=#C3DB9A
+# yellow (brand Gul)
+palette = 3=#FFD24C
+palette = 11=#FFE08A
+# blue (brand Blå)
+palette = 4=#97D2EC
+palette = 12=#B8E2F5
+# magenta (dusty rose, bridges Oransje and Blå)
+palette = 5=#D9A0C7
+palette = 13=#EBBCDA
+# cyan (soft teal between Blå and the sage green)
+palette = 6=#7EC9BE
+palette = 14=#9FE0D6
+# white
+palette = 7=#E8E2D9
+palette = 15=#FCF6EE

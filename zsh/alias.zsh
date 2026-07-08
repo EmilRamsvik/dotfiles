@@ -26,6 +26,13 @@ alias dt="cd ~/Desktop"
 alias dot="cd ~/dotfiles"
 alias h="cd ~/"
 
+# Quick-jump to frequent directories — keep autojump's `j` muscle memory,
+# backed by zoxide (`ji` opens the interactive fzf picker)
+if command -v zoxide &> /dev/null; then
+  alias j="z"
+  alias ji="zi"
+fi
+
 # ------------------------------------------------------------------------------
 # Git Shortcuts
 # ------------------------------------------------------------------------------
@@ -47,11 +54,25 @@ alias lg="lazygit"
 # File Operations
 # ------------------------------------------------------------------------------
 
-# List files with various options
-alias l="ls -lF -G"
-alias ll="ls -l"
-alias la="ls -laF -G"
-alias lsd="ls -lF -G | grep --color=never '^d'"
+# Listing — eza (modern ls with colors, icons, git status) when available
+if command -v eza &> /dev/null; then
+  alias l="eza -l --icons --git --group-directories-first"
+  alias ll="eza -l --icons --git --group-directories-first"
+  alias la="eza -la --icons --git --group-directories-first"
+  alias lt="eza --tree --level=2 --icons"
+  alias lsd="eza -lD --icons"
+else
+  alias l="ls -lF -G"
+  alias ll="ls -l"
+  alias la="ls -laF -G"
+  alias lsd="ls -lF -G | grep --color=never '^d'"
+fi
+
+# bat — cat with syntax highlighting and git integration
+if command -v bat &> /dev/null; then
+  alias cat="bat --paging=never"
+  alias catp="command cat"  # plain cat when you need it
+fi
 
 # File manipulation
 alias t="touch"
@@ -115,5 +136,3 @@ alias dpsa="docker ps -a"
 alias di="docker images"
 alias dex="docker exec -it"
 alias dlog="docker logs -f"
-
-echo "✓ Aliases loaded"
